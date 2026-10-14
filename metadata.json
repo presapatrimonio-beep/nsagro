@@ -1,0 +1,6 @@
+{
+  "name": "NS Advocacia — Direito Bancário no Agronegócio",
+  "description": "Assessoria jurídica estratégica em operações bancárias, crédito rural, reestruturação de passivos, garantias e patrimônio no agronegócio.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

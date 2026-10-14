@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 240" fill="none" class="w-full h-full">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE8A5" />
+      <stop offset="35%" stop-color="#E1BB57" />
+      <stop offset="70%" stop-color="#C59B27" />
+      <stop offset="100%" stop-color="#8E6518" />
+    </linearGradient>
+    <linearGradient id="goldLight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFF3C4" />
+      <stop offset="60%" stop-color="#D4AF37" />
+      <stop offset="100%" stop-color="#996D17" />
+    </linearGradient>
+    <filter id="goldGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#C59B27" flood-opacity="0.25" />
+    </filter>
+  </defs>
+
+  <g filter="url(#goldGlow)">
+    <!-- Swash top left wing of the N -->
+    <path d="M 32 68 C 45 68, 58 74, 75 88 C 88 98, 100 115, 108 132 L 108 86 L 96 86 C 90 86, 86 82, 86 78 C 86 74, 90 70, 96 70 L 142 70 C 148 70, 152 74, 152 78 C 152 82, 148 86, 142 86 L 132 86 L 132 165 C 132 170, 128 174, 122 174 C 117 174, 112 170, 108 164 L 62 92 C 54 80, 44 72, 32 68 Z" fill="url(#goldGrad)"/>
+
+    <!-- Main Left Stem of N -->
+    <path d="M 68 174 L 104 174 C 109 174, 112 178, 112 182 C 112 186, 109 190, 104 190 L 60 190 C 55 190, 52 186, 52 182 C 52 178, 55 174, 60 174 L 72 174 L 72 108 C 62 98, 52 92, 42 88 L 42 84 C 50 84, 60 86, 72 90 L 72 174 Z" fill="url(#goldGrad)"/>
+
+    <!-- Intertwining N & S ligature -->
+    <!-- S Letter with classical Roman curves, serif top and swooping teardrop bottom -->
+    <path d="M 148 72 C 172 72, 198 84, 218 104 L 210 116 C 196 102, 178 92, 160 92 C 144 92, 134 100, 134 112 C 134 126, 148 134, 170 144 C 202 158, 224 174, 224 200 C 224 224, 202 242, 166 242 C 142 242, 116 230, 96 210 L 106 196 C 122 212, 144 222, 164 222 C 182 222, 196 214, 196 200 C 196 184, 180 174, 156 162 C 126 148, 106 134, 106 110 C 106 86, 126 72, 148 72 Z" fill="url(#goldLight)"/>
+
+    <!-- Top Serif of S -->
+    <path d="M 216 74 L 216 110 L 206 110 C 204 96, 196 86, 182 82 L 182 74 Z" fill="url(#goldGrad)"/>
+  </g>
+</svg>
