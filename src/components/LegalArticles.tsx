@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BookOpen, Clock, Calendar, ArrowRight, X } from 'lucide-react';
+import { ArrowUpRight, X } from 'lucide-react';
 
 export interface Article {
   id: string;
@@ -98,32 +98,31 @@ const articlesData: Article[] = [
     category: 'Contratos Bancários',
     title: 'CPR Física e Financeira: distinções fundamentais na emissão e execução',
     subtitle: 'A evolução da Lei 8.929/94 pós-Lei do Agro e os limites da liquidez executiva',
-    date: '18 de Setembro de 2026',
-    readTime: '5 min de leitura',
+    date: '20 de Setembro de 2026',
+    readTime: '7 min de leitura',
     author: 'Equipe de Direito Bancário e Agronegócio · NS Advocacia',
     summary:
-      'Como a alteração do regime jurídico das Cédulas de Produto Rural impacta as obrigações de entrega física de grãos e as controvérsias de liquidez em cobranças bancárias.',
+      'Como a modernização legislativa da Cédula de Produto Rural alterou as dinâmicas de custeio, liquidação física e execução direta de lavouras dadas em penhor.',
     content: [
       {
-        sectionTitle: 'O papel da Cédula de Produto Rural no fomento agropecuário',
+        sectionTitle: 'A transformação da CPR no financiamento privado',
         paragraphs: [
-          'A Cédula de Produto Rural (CPR), instituída pela Lei nº 8.929/1994, consolidou-se como o instrumento central de financiamento privado da agricultura brasileira. Contudo, as alterações promovidas pela Lei nº 13.986/2020 (Lei do Agro) e legislações subsequentes ampliaram consideravelmente o rol de emissores e a sofisticação das cláusulas financeiras.',
-          'A distinção primordial reside entre a CPR com liquidação física (que obriga o emitente a entregar quantidade certa de produto rural colhido) e a CPR com liquidação financeira (que vincula o pagamento a índice de preço de mercado ou taxa prefixada).',
+          'Instituída originalmente pela Lei nº 8.929/1994, a Cédula de Produto Rural tornou-se o principal título de crédito representativo de promessa de entrega futura de produtos agropecuários. Com o advento da Lei do Agro (Lei nº 13.986/2020) e alterações subsequentes, a emissão da CPR foi ampliada, autorizando a inclusão de cláusula de correção em moeda estrangeira e registro obrigatório em entidades registradoras autorizadas pelo Bacen.',
+          'A diferenciação entre CPR física (entrega de mercadoria em grão) e financeira (liquidação pelo índice de preço pactuado) impõe reflexos processuais decisivos em caso de não cumprimento da obrigação.',
         ],
       },
       {
-        sectionTitle: 'Controvérsias executivas e desvio de finalidade',
+        sectionTitle: 'Pressupostos de liquidez e defesas cabíveis',
         paragraphs: [
-          'Não raro, constata-se a utilização da CPR financeira como mero instrumento de simulação para operações de capital de giro comum, desprovidas de destinação à atividade agropecuária e inflacionadas com encargos remuneratórios ilegais.',
-          'Em sede de contencioso, o exame da efetiva liberação dos recursos e da vinculação da cédula à produção agrícola real pode fundamentar a desconstituição de sua força executiva ou o expurgo de encargos abusivos.',
+          'A cobrança executiva da CPR exige que o título contenha com precisão a descrição dos produtos, critérios claros de apuração de preços e comprovante tempestivo do registro eletrônico perante depositária autorizada.',
+          'Defesas em execuções de CPR financeira frequentemente versam sobre a ocorrência de caso fortuito climática (frustração integral de safra), duplicidade de garantias e discrepância entre os índices de liquidação financeira estipulados e as médias reais de mercado divulgadas por órgãos oficiais.',
         ],
       },
     ],
     references: [
       'Lei Federal nº 8.929/1994 (Cédula de Produto Rural)',
-      'Lei Federal nº 13.986/2020 (Lei do Agro)',
-      'Súmula 286 do Superior Tribunal de Justiça',
-      'Artigo 784, inciso XII, do Código de Processo Civil',
+      'Lei Federal nº 13.986/2020 (Nova Lei do Agro)',
+      'Resoluções do Banco Central sobre Registro de CPRs em Registradoras',
     ],
   },
 ];
@@ -134,80 +133,84 @@ export const LegalArticles: React.FC = () => {
 
   const categories = ['Todos', 'Crédito Rural', 'Garantias', 'Contratos Bancários'];
 
-  const filteredArticles = activeCategory === 'Todos'
-    ? articlesData
-    : articlesData.filter((a) => a.category === activeCategory);
+  const filteredArticles =
+    activeCategory === 'Todos'
+      ? articlesData
+      : articlesData.filter((art) => art.category === activeCategory);
 
   return (
-    <section id="artigos" className="py-24 lg:py-32 bg-[#050505] border-b border-[#1A1A1A] relative">
-      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+    <section id="artigos" className="py-28 lg:py-36 bg-[#050505] border-t border-white/[0.06]">
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-16">
+        {/* Header and Filter Row */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-20">
           <div className="max-w-3xl">
-            <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.25em] text-[#FFD96A] font-semibold mb-3">
-              <span className="w-8 h-[2px] bg-[#E6BE45]" />
-              <span>PRODUÇÃO TÉCNICA & DOUTRINA</span>
-            </div>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#FFFFFF] font-normal leading-tight mb-3">
+            <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#D8AD36] font-semibold block mb-4">
+              PUBLICAÇÕES & DOUTRINA APLICADA
+            </span>
+            <h2 className="font-serif text-3xl sm:text-5xl text-[#FFFFFF] font-normal leading-tight mb-6">
               Conteúdo jurídico especializado no agronegócio
             </h2>
-            <p className="text-base text-[#C8C8C8] font-light leading-relaxed">
+            <p className="text-lg text-[#B8B8B8] font-light leading-relaxed">
               Análises e artigos informativos sobre as repercussões legais e jurisprudenciais do direito bancário aplicado ao setor agropecuário.
             </p>
           </div>
 
-          {/* Category Filter Controls in Gold */}
-          <div className="flex items-center gap-2.5 overflow-x-auto pb-2">
+          {/* Category Filter Controls: Minimalist Clean Text Buttons */}
+          <div className="flex items-center gap-6 overflow-x-auto pb-2 scrollbar-none border-b border-white/[0.08] lg:border-none">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 text-xs font-bold tracking-wider uppercase rounded-[1px] transition-colors whitespace-nowrap cursor-pointer ${
+                className={`pb-2 text-sm font-medium tracking-wide transition-colors whitespace-nowrap cursor-pointer relative ${
                   activeCategory === cat
-                    ? 'bg-[#E6BE45] text-[#050505] shadow-[0_0_15px_rgba(230,190,69,0.35)]'
-                    : 'bg-[#0D0D0D] text-[#A0A0A0] hover:text-[#FFFFFF] hover:bg-[#151515] border border-[#222222]'
+                    ? 'text-[#FFFFFF]'
+                    : 'text-[#777777] hover:text-[#B8B8B8]'
                 }`}
               >
                 {cat}
+                {activeCategory === cat && (
+                  <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#D8AD36]" />
+                )}
               </button>
             ))}
           </div>
         </div>
 
-        {/* Articles Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        {/* Articles List — Pure Editorial Layout directly on the background (No Cards) */}
+        <div className="divide-y divide-white/[0.08] border-t border-b border-white/[0.08] mb-16">
           {filteredArticles.map((article) => (
             <article
               key={article.id}
-              className="bg-[#090909] border border-[#1F1F1F] hover:border-[#E6BE45] p-8 rounded-[1px] flex flex-col justify-between transition-all duration-300 group shadow-[0_5px_25px_rgba(0,0,0,0.7)]"
+              onClick={() => setSelectedArticle(article)}
+              className="py-12 group cursor-pointer transition-colors"
             >
-              <div>
-                <div className="flex items-center gap-2 text-xs font-mono text-[#FFD96A] uppercase tracking-wider font-semibold mb-4">
-                  <span>{article.category}</span>
-                  <span aria-hidden="true" className="text-[#E6BE45]">·</span>
-                  <span>{article.readTime}</span>
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+                {/* Meta Column (3 cols) */}
+                <div className="lg:col-span-3 space-y-2">
+                  <span className="font-mono text-xs text-[#D8AD36] uppercase tracking-wider font-semibold block">
+                    {article.category}
+                  </span>
+                  <p className="font-mono text-xs text-[#777777]">
+                    {article.date} · {article.readTime}
+                  </p>
                 </div>
 
-                <h3 className="font-serif text-2xl text-[#FFFFFF] font-normal group-hover:text-[#FFD96A] transition-colors leading-snug mb-4">
-                  {article.title}
-                </h3>
+                {/* Title & Excerpt Column (8 cols) */}
+                <div className="lg:col-span-8 space-y-3">
+                  <h3 className="font-serif text-2xl sm:text-3xl text-[#FFFFFF] font-normal group-hover:text-[#F3D36A] transition-colors leading-snug">
+                    {article.title}
+                  </h3>
+                  <p className="text-base text-[#B8B8B8] font-light leading-relaxed">
+                    {article.summary}
+                  </p>
+                </div>
 
-                <p className="text-xs sm:text-sm text-[#A0A0A0] font-light leading-relaxed mb-8">
-                  {article.summary}
-                </p>
-              </div>
-
-              <div>
-                <div className="hairline-dark mb-5" />
-                <div className="flex items-center justify-between text-xs">
-                  <span className="text-[#777777] font-mono">{article.date}</span>
-                  <button
-                    onClick={() => setSelectedArticle(article)}
-                    className="inline-flex items-center gap-2 text-xs font-bold tracking-wider uppercase text-[#FFD96A] group-hover:text-[#FFFFFF] transition-colors cursor-pointer"
-                  >
-                    <span>LER ARTIGO</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
+                {/* Action Icon (1 col) */}
+                <div className="lg:col-span-1 flex items-center lg:justify-end pt-2 lg:pt-0">
+                  <span className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-[#D8AD36] group-hover:text-[#FFFFFF] transition-colors">
+                    <span className="hidden sm:inline lg:hidden">Ler</span>
+                    <ArrowUpRight className="w-4 h-4 text-[#D8AD36] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </span>
                 </div>
               </div>
             </article>
@@ -216,7 +219,7 @@ export const LegalArticles: React.FC = () => {
 
         {/* Informative Disclaimer */}
         <div className="text-center">
-          <p className="text-xs text-[#777777] max-w-3xl mx-auto italic font-light">
+          <p className="text-xs sm:text-sm text-[#777777] max-w-3xl mx-auto italic font-light">
             Aviso: O conteúdo dos artigos possui finalidade estritamente informativa e acadêmica. As teses jurídicas não constituem orientação vinculante e não substituem o exame técnico de cada caso concreto por advogado habilitado.
           </p>
         </div>
@@ -224,22 +227,22 @@ export const LegalArticles: React.FC = () => {
 
       {/* Full Article Reading Modal */}
       {selectedArticle && (
-        <div className="fixed inset-0 z-50 overflow-y-auto bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 lg:p-10">
-          <div className="bg-[#090909] border border-[#E6BE45]/60 max-w-3xl w-full max-h-[90vh] overflow-y-auto rounded-[1px] p-6 sm:p-12 relative shadow-[0_0_50px_rgba(0,0,0,0.9)]">
+        <div className="fixed inset-0 z-50 overflow-y-auto bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 lg:p-12">
+          <div className="bg-[#090909] border border-white/[0.12] max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-12 relative">
             <button
               onClick={() => setSelectedArticle(null)}
-              className="absolute top-6 right-6 p-2 text-[#999999] hover:text-[#FFFFFF] hover:bg-[#151515] rounded transition-colors cursor-pointer"
+              className="absolute top-6 right-6 p-2 text-[#999999] hover:text-[#FFFFFF] transition-colors cursor-pointer"
               aria-label="Fechar artigo"
             >
               <X className="w-6 h-6" />
             </button>
 
-            <div className="border-b border-[#222222] pb-6 mb-8">
-              <div className="flex items-center gap-2 text-xs font-mono text-[#FFD96A] uppercase tracking-wider font-semibold mb-3">
+            <div className="border-b border-white/[0.08] pb-8 mb-8">
+              <div className="flex items-center gap-3 text-xs font-mono text-[#D8AD36] uppercase tracking-wider font-semibold mb-4">
                 <span>{selectedArticle.category}</span>
-                <span aria-hidden="true">·</span>
+                <span>·</span>
                 <span>{selectedArticle.readTime}</span>
-                <span aria-hidden="true">·</span>
+                <span>·</span>
                 <span>{selectedArticle.date}</span>
               </div>
 
@@ -247,50 +250,46 @@ export const LegalArticles: React.FC = () => {
                 {selectedArticle.title}
               </h2>
 
-              <p className="text-sm sm:text-base text-[#D0D0D0] font-light leading-relaxed">
+              <p className="text-base text-[#D0D0D0] font-light leading-relaxed">
                 {selectedArticle.subtitle}
               </p>
-
-              <div className="mt-4 pt-4 border-t border-[#1A1A1A] text-xs text-[#888888]">
-                <span>Autor: </span>
-                <span className="text-[#FFD96A] font-semibold">{selectedArticle.author}</span>
-              </div>
             </div>
 
-            <div className="space-y-8 text-sm sm:text-base text-[#D0D0D0] font-light leading-relaxed">
+            {/* Article Content */}
+            <div className="space-y-8 text-base text-[#B8B8B8] leading-relaxed font-light">
               {selectedArticle.content.map((sec, idx) => (
-                <div key={idx} className="space-y-3">
-                  <h3 className="font-serif text-xl sm:text-2xl text-[#FFFFFF] font-medium">
+                <div key={idx} className="space-y-4">
+                  <h3 className="font-serif text-xl sm:text-2xl text-[#FFFFFF] font-normal">
                     {sec.sectionTitle}
                   </h3>
                   {sec.paragraphs.map((p, pIdx) => (
-                    <p key={pIdx} className="leading-relaxed text-xs sm:text-sm text-[#B0B0B0]">
-                      {p}
-                    </p>
+                    <p key={pIdx}>{p}</p>
                   ))}
                 </div>
               ))}
             </div>
 
-            <div className="mt-10 p-6 bg-[#050505] border-t-2 border-[#E6BE45] rounded-[1px]">
-              <span className="block text-xs font-mono text-[#FFD96A] uppercase tracking-wider font-bold mb-3">
-                Dispositivos e Precedentes Referenciados
+            {/* References */}
+            <div className="mt-12 pt-8 border-t border-white/[0.08] space-y-3">
+              <span className="font-mono text-xs uppercase tracking-wider text-[#FFFFFF] font-semibold block">
+                Legislação e Referências Doutrinárias
               </span>
-              <ul className="space-y-2 text-xs text-[#A0A0A0]">
+              <ul className="space-y-1.5 text-xs text-[#777777] font-mono">
                 {selectedArticle.references.map((ref, idx) => (
                   <li key={idx} className="flex items-center gap-2">
-                    <span className="text-[#E6BE45] font-mono">›</span>
+                    <span className="text-[#D8AD36]">▪</span>
                     <span>{ref}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="mt-8 pt-4 border-t border-[#1C1C1C] flex items-center justify-between text-xs text-[#777777]">
+            {/* Modal Footer Note */}
+            <div className="mt-10 pt-6 border-t border-white/[0.08] flex items-center justify-between text-xs text-[#777777]">
               <span>NS Advocacia • OAB/SP 318.251</span>
               <button
                 onClick={() => setSelectedArticle(null)}
-                className="text-[#FFD96A] font-bold hover:underline"
+                className="text-[#D8AD36] hover:text-[#FFFFFF] uppercase tracking-wider font-semibold cursor-pointer"
               >
                 Fechar Artigo
               </button>

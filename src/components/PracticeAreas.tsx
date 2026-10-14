@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronRight, CheckCircle2, ArrowRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 interface PracticeAreaItem {
   id: string;
@@ -126,127 +126,116 @@ export const PracticeAreas: React.FC = () => {
   const currentArea = practiceData.find((item) => item.id === selectedId) || practiceData[0];
 
   return (
-    <section id="areas-atuacao" className="py-24 lg:py-32 bg-[#090909] border-b border-[#1A1A1A] relative">
-      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14">
+    <section id="areas-atuacao" className="py-28 lg:py-36 bg-[#090909]">
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-16">
         {/* Header */}
-        <div className="max-w-3xl mb-16">
-          <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.25em] text-[#FFD96A] font-semibold mb-3">
-            <span className="w-8 h-[2px] bg-[#E6BE45]" />
-            <span>FRENTES ESPECIALIZADAS DE ATUAÇÃO</span>
-          </div>
+        <div className="max-w-4xl mb-20">
+          <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#D8AD36] font-semibold block mb-4">
+            FRENTES ESPECIALIZADAS DE ATUAÇÃO
+          </span>
 
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#FFFFFF] font-normal leading-tight mb-4">
+          <h2 className="font-serif text-3xl sm:text-5xl text-[#FFFFFF] font-normal leading-tight mb-6">
             Índice institucional de serviços em direito bancário rural
           </h2>
 
-          <p className="text-base sm:text-lg text-[#C8C8C8] font-light leading-relaxed">
-            Selecione uma área abaixo para acessar o escopo temático, os instrumentos contratuais examinados e as diretrizes jurídicas aplicáveis.
+          <p className="text-lg text-[#B8B8B8] font-light leading-relaxed">
+            Selecione uma área abaixo para acessar o escopo temático, os instrumentos contratuais examinados e as diretrizes jurídicas aplicáveis a cada operação.
           </p>
         </div>
 
-        {/* Asymmetrical Master Navigation & Expansive Deep-Dive View */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          {/* Master Left Index (5 cols) */}
-          <div className="lg:col-span-5 space-y-3">
+        {/* Editorial Index Layout: Clean Horizontal Lines, No Box Cards */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-start">
+          {/* Master Index List (5 cols) */}
+          <div className="lg:col-span-5 divide-y divide-white/[0.08] border-t border-b border-white/[0.08]">
             {practiceData.map((area) => {
               const isSelected = area.id === selectedId;
               return (
                 <button
                   key={area.id}
                   onClick={() => setSelectedId(area.id)}
-                  className={`w-full text-left p-5 transition-all duration-200 cursor-pointer flex items-center justify-between border ${
-                    isSelected
-                      ? 'bg-[#151515] border-[#E6BE45] shadow-[0_0_20px_rgba(230,190,69,0.2)]'
-                      : 'bg-[#050505] border-[#1C1C1C] hover:border-[#333333] hover:bg-[#0D0D0D]'
-                  }`}
+                  className="w-full text-left py-7 transition-colors cursor-pointer flex items-center justify-between group"
                 >
-                  <div className="flex items-center gap-4 min-w-0">
+                  <div className="flex items-baseline gap-5 min-w-0 pr-4">
                     <span
-                      className={`font-mono text-sm font-bold w-7 h-7 rounded-[1px] flex items-center justify-center shrink-0 ${
-                        isSelected
-                          ? 'bg-[#E6BE45] text-[#050505]'
-                          : 'bg-[#151515] text-[#888888]'
+                      className={`font-mono text-sm font-semibold tracking-wider shrink-0 transition-colors ${
+                        isSelected ? 'text-[#D8AD36]' : 'text-[#666666]'
                       }`}
                     >
-                      {area.letter}
+                      {area.letter}.
                     </span>
-                    <div className="truncate">
+                    <div>
                       <h3
-                        className={`text-sm sm:text-base font-semibold truncate ${
-                          isSelected ? 'text-[#FFFFFF]' : 'text-[#CCCCCC]'
+                        className={`text-lg sm:text-xl font-serif transition-colors ${
+                          isSelected ? 'text-[#FFFFFF] font-medium' : 'text-[#B8B8B8] group-hover:text-[#FFFFFF]'
                         }`}
                       >
                         {area.title}
                       </h3>
-                      <p className="text-xs text-[#888888] truncate mt-0.5">{area.subtitle}</p>
+                      <p className="text-xs sm:text-sm text-[#777777] font-light mt-1">{area.subtitle}</p>
                     </div>
                   </div>
 
-                  <ChevronRight
-                    className={`w-5 h-5 shrink-0 transition-transform ${
-                      isSelected ? 'text-[#FFD96A] translate-x-1' : 'text-[#444444]'
+                  <span
+                    className={`font-mono text-xs tracking-widest uppercase shrink-0 transition-colors ${
+                      isSelected ? 'text-[#D8AD36]' : 'text-transparent group-hover:text-[#666666]'
                     }`}
-                  />
+                  >
+                    {isSelected ? 'ATIVO' : 'VER'}
+                  </span>
                 </button>
               );
             })}
           </div>
 
-          {/* Right Expansive Panel (7 cols) - Editorial Magazine Grade */}
-          <div className="lg:col-span-7 bg-[#050505] border border-[#222222] p-8 sm:p-12 relative shadow-[0_10px_40px_rgba(0,0,0,0.9)]">
-            {/* Top Badge & Title */}
-            <div className="border-b border-[#1C1C1C] pb-8 mb-8">
-              <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-widest text-[#FFD96A] font-bold mb-3">
-                <span>VERTICAL {currentArea.letter}</span>
-                <span className="text-[#E6BE45]">/</span>
-                <span>NS ADVOCACIA</span>
-              </div>
+          {/* Right Open Reading Space (7 cols) - Directly on Background */}
+          <div className="lg:col-span-7 space-y-10 lg:pl-6">
+            <div>
+              <span className="font-mono text-xs uppercase tracking-widest text-[#D8AD36] font-semibold block mb-3">
+                VERTICAL {currentArea.letter} · NS ADVOCACIA
+              </span>
 
-              <h3 className="font-serif text-3xl sm:text-4xl text-[#FFFFFF] font-normal mb-4 leading-tight">
+              <h3 className="font-serif text-3xl sm:text-4xl text-[#FFFFFF] font-normal leading-tight mb-5">
                 {currentArea.title}
               </h3>
 
-              <p className="text-base text-[#D0D0D0] leading-relaxed font-light">
+              <p className="text-base sm:text-lg text-[#B8B8B8] leading-relaxed font-light">
                 {currentArea.summary}
               </p>
             </div>
 
-            {/* Themes Checklist */}
-            <div className="mb-8">
-              <span className="block text-xs font-mono uppercase tracking-wider text-[#FFD96A] font-bold mb-4">
+            {/* Themes Checklist - Clean Typography with Simple Gold Dots */}
+            <div className="pt-8 border-t border-white/[0.08] space-y-4">
+              <span className="font-mono text-xs uppercase tracking-widest text-[#FFFFFF] font-semibold block">
                 Questões e Temas Jurídicos Abrangidos
               </span>
-              <ul className="space-y-3">
+              <ul className="space-y-3.5">
                 {currentArea.themes.map((theme, idx) => (
-                  <li key={idx} className="flex items-start gap-3.5 text-xs sm:text-sm text-[#C0C0C0] leading-relaxed">
-                    <CheckCircle2 className="w-4 h-4 text-[#E6BE45] shrink-0 mt-0.5" />
+                  <li key={idx} className="flex items-start gap-4 text-sm sm:text-base text-[#B8B8B8] leading-relaxed font-light">
+                    <span className="text-[#D8AD36] mt-1 shrink-0 font-bold">―</span>
                     <span>{theme}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Typical Documents */}
-            <div className="mb-8 pt-6 border-t border-[#1C1C1C]">
-              <span className="block text-xs font-mono uppercase tracking-wider text-[#FFD96A] font-bold mb-3">
-                Instrumentos Analisados
+            {/* Typical Documents List */}
+            <div className="pt-8 border-t border-white/[0.08] space-y-3">
+              <span className="font-mono text-xs uppercase tracking-widest text-[#FFFFFF] font-semibold block">
+                Instrumentos e Contratos Analisados
               </span>
-              <div className="flex flex-wrap gap-2.5">
+              <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-[#B8B8B8]">
                 {currentArea.instruments.map((inst, idx) => (
-                  <span
-                    key={idx}
-                    className="text-xs px-3.5 py-1.5 bg-[#151515] text-[#E0E0E0] border border-[#2A2A2A] rounded-[1px]"
-                  >
-                    {inst}
+                  <span key={idx} className="inline-flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#D8AD36]" />
+                    <span>{inst}</span>
                   </span>
                 ))}
               </div>
             </div>
 
             {/* Scope Caveat */}
-            <div className="p-5 bg-[#0D0D0D] border-l-2 border-[#E6BE45] text-xs text-[#999999] leading-relaxed">
-              <strong className="text-[#FFFFFF] block mb-1">Critério de Rigor Técnico:</strong>
-              {currentArea.scopeNote}
+            <div className="pt-6 border-t border-white/[0.08] text-xs sm:text-sm text-[#777777] font-light leading-relaxed">
+              <strong className="text-[#B8B8B8] font-medium">Nota técnica:</strong> {currentArea.scopeNote}
             </div>
           </div>
         </div>

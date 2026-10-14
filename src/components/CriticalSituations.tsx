@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { HelpCircle, ArrowUpRight } from 'lucide-react';
+import React from 'react';
+import { ArrowUpRight } from 'lucide-react';
 
 interface Situation {
   id: number;
@@ -76,100 +76,66 @@ interface CriticalSituationsProps {
 }
 
 export const CriticalSituations: React.FC<CriticalSituationsProps> = ({ onOpenContact }) => {
-  const [activeId, setActiveId] = useState<number | null>(null);
-
   return (
-    <section className="py-24 lg:py-32 bg-[#050505] border-b border-[#1A1A1A] relative">
-      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14">
+    <section className="py-28 lg:py-36 bg-[#050505] border-t border-white/[0.06]">
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-16">
         {/* Header */}
-        <div className="max-w-3xl mb-16">
-          <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.25em] text-[#FFD96A] font-semibold mb-3">
-            <span className="w-8 h-[2px] bg-[#E6BE45]" />
-            <span>SINAIS DE ALERTA & CONDUTA PREVENTIVA</span>
-          </div>
+        <div className="max-w-4xl mb-20">
+          <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#D8AD36] font-semibold block mb-4">
+            SINAIS DE ALERTA & CONDUTA PREVENTIVA
+          </span>
 
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#FFFFFF] font-normal leading-tight mb-4">
+          <h2 className="font-serif text-3xl sm:text-5xl text-[#FFFFFF] font-normal leading-tight mb-6">
             Situações práticas que exigem análise jurídica individualizada
           </h2>
 
-          <p className="text-base sm:text-lg text-[#C8C8C8] font-light leading-relaxed">
-            A tomada de decisão no agronegócio depende do momento em que o risco é identificado. Quanto mais tempestiva a avaliação dos contratos e notificações, maiores são as alternativas cabíveis.
+          <p className="text-lg text-[#B8B8B8] font-light leading-relaxed">
+            A tomada de decisão no agronegócio depende do momento em que o risco é identificado. Quanto mais tempestiva a avaliação dos contratos e notificações, maiores são as alternativas jurídicas cabíveis.
           </p>
         </div>
 
-        {/* 2-Column Architectural List with Subtle Dividers */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4 mb-16">
-          {situations.map((sit) => {
-            const isExpanded = activeId === sit.id;
-            return (
-              <div
-                key={sit.id}
-                onClick={() => setActiveId(isExpanded ? null : sit.id)}
-                className={`py-5 border-b transition-all duration-200 cursor-pointer ${
-                  isExpanded
-                    ? 'border-[#E6BE45] bg-[#0D0D0D] px-4'
-                    : 'border-[#1C1C1C] hover:border-[#383838]'
-                }`}
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex items-start gap-4">
-                    <span className="font-mono text-sm font-bold text-[#FFD96A] pt-0.5 shrink-0">
-                      {String(sit.id).padStart(2, '0')}.
-                    </span>
-                    <div>
-                      <h3 className="text-base font-serif font-medium text-[#FFFFFF] leading-snug">
-                        {sit.title}
-                      </h3>
-                      <p className="text-xs text-[#999999] leading-relaxed mt-1">
-                        {sit.context}
-                      </p>
-                    </div>
-                  </div>
-                  <HelpCircle
-                    className={`w-4 h-4 shrink-0 transition-transform ${
-                      isExpanded ? 'text-[#E6BE45] rotate-180' : 'text-[#555555]'
-                    }`}
-                  />
-                </div>
-
-                {/* Expanded Legal Implication */}
-                <div
-                  className={`transition-all duration-300 overflow-hidden ${
-                    isExpanded ? 'max-h-40 opacity-100 mt-4 pt-3 border-t border-[#222222]' : 'max-h-0 opacity-0'
-                  }`}
-                >
-                  <span className="block text-[11px] font-mono text-[#FFD96A] uppercase tracking-wider font-semibold mb-1">
-                    Exame Jurídico Aplicável:
-                  </span>
-                  <p className="text-xs text-[#E0E0E0] leading-relaxed font-light">
-                    {sit.legalImplication}
-                  </p>
-                </div>
+        {/* 2-Column Open Editorial List, No Boxes, Quiet Dividers */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-20 gap-y-12 mb-20 divide-y lg:divide-y-0 divide-white/[0.08]">
+          {situations.map((sit) => (
+            <div key={sit.id} className="pt-8 lg:pt-0 border-b border-white/[0.08] pb-10">
+              <div className="flex items-baseline gap-4 mb-3">
+                <span className="font-mono text-sm font-semibold text-[#D8AD36]">
+                  {String(sit.id).padStart(2, '0')}.
+                </span>
+                <h3 className="text-xl sm:text-2xl font-serif text-[#FFFFFF] font-normal">
+                  {sit.title}
+                </h3>
               </div>
-            );
-          })}
+              <p className="text-[15px] text-[#B8B8B8] font-light leading-relaxed mb-3 pl-8">
+                {sit.context}
+              </p>
+              <div className="pl-8 text-xs sm:text-sm text-[#888888] font-light leading-relaxed">
+                <strong className="text-[#D8AD36] font-medium">Exame aplicável:</strong> {sit.legalImplication}
+              </div>
+            </div>
+          ))}
         </div>
 
-        {/* Institutional Call to Action Box - Obsidian & Gold Banner */}
-        <div className="p-8 sm:p-12 bg-[#090909] border border-[#E6BE45]/40 rounded-[1px] shadow-[0_0_30px_rgba(230,190,69,0.15)] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
-          <div className="max-w-3xl">
-            <span className="text-xs font-mono uppercase tracking-widest text-[#FFD96A] font-bold block mb-2">
+        {/* Clean Open CTA Block (No Boxed Card) */}
+        <div className="pt-12 border-t border-white/[0.08] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+          <div className="max-w-3xl space-y-2">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#D8AD36] font-semibold block">
               AVALIAÇÃO PRELIMINAR DE CONTRATOS
             </span>
-            <h3 className="font-serif text-2xl sm:text-3xl text-[#FFFFFF] font-normal mb-3">
+            <h4 className="font-serif text-2xl sm:text-3xl text-[#FFFFFF]">
               Cada operação possui características próprias e prazos singulares.
-            </h3>
-            <p className="text-xs sm:text-sm text-[#B8B8B8] font-light leading-relaxed">
+            </h4>
+            <p className="text-sm sm:text-base text-[#B8B8B8] font-light leading-relaxed">
               Uma avaliação inicial permite identificar quais instrumentos, extratos e notificações são juridicamente pertinentes para a elaboração de parecer ou estratégia de atuação. Não existem soluções automáticas ou universais.
             </p>
           </div>
 
           <button
             onClick={onOpenContact}
-            className="inline-flex items-center gap-3 px-8 py-4 text-xs font-bold tracking-widest uppercase text-[#050505] bg-gradient-to-r from-[#FFD96A] via-[#E6BE45] to-[#B78B24] rounded-[1px] transition-all duration-200 hover:brightness-115 active:scale-[0.98] shrink-0 cursor-pointer shadow-[0_0_20px_rgba(230,190,69,0.35)]"
+            className="inline-flex items-center gap-3 px-9 py-4 sm:py-5 text-[13px] font-semibold tracking-wider uppercase text-[#050505] bg-[#D8AD36] hover:bg-[#F3D36A] transition-colors duration-200 shrink-0 cursor-pointer"
           >
-            <span>ENTRAR EM CONTATO</span>
-            <ArrowUpRight className="w-4 h-4 text-[#050505] stroke-[3]" />
+            <span>Entrar em Contato</span>
+            <ArrowUpRight className="w-4 h-4 text-[#050505]" />
           </button>
         </div>
       </div>

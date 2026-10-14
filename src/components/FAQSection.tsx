@@ -57,62 +57,55 @@ export const FAQSection: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="py-24 lg:py-32 bg-[#090909] border-b border-[#1A1A1A] relative">
-      <div className="max-w-4xl mx-auto px-6 sm:px-10 lg:px-14">
+    <section id="faq" className="py-28 lg:py-36 bg-[#090909] border-t border-white/[0.06]">
+      <div className="max-w-4xl mx-auto px-6 sm:px-12 lg:px-16">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="flex items-center justify-center gap-3 text-xs font-mono uppercase tracking-[0.25em] text-[#FFD96A] font-semibold mb-3">
-            <span className="w-8 h-[2px] bg-[#E6BE45]" />
-            <span>ESCLARECIMENTOS REGULATÓRIOS</span>
-            <span className="w-8 h-[2px] bg-[#E6BE45]" />
-          </div>
+        <div className="max-w-3xl mb-20">
+          <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#D8AD36] font-semibold block mb-4">
+            ESCLARECIMENTOS REGULATÓRIOS
+          </span>
 
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#FFFFFF] font-normal leading-tight mb-4">
+          <h2 className="font-serif text-3xl sm:text-5xl text-[#FFFFFF] font-normal leading-tight mb-6">
             Perguntas frequentes sobre crédito bancário e agro
           </h2>
 
-          <p className="text-base text-[#C8C8C8] font-light leading-relaxed">
-            Respostas embasadas nas normas regulatórias e na jurisprudência dos tribunais brasileiros. As soluções concretas dependem do exame individualizado da documentação.
+          <p className="text-lg text-[#B8B8B8] font-light leading-relaxed">
+            Respostas fundamentadas nas normas regulatórias e na jurisprudência dos tribunais brasileiros. As soluções concretas dependem do exame individualizado da documentação.
           </p>
         </div>
 
-        {/* Accordion */}
-        <div className="space-y-4">
+        {/* Clean Accordion — Seamlessly Divided by Hairlines (No Box Containers) */}
+        <div className="divide-y divide-white/[0.08] border-t border-b border-white/[0.08]">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
-              <div
-                key={index}
-                className={`border rounded-[1px] transition-all duration-200 ${
-                  isOpen
-                    ? 'bg-[#121212] border-[#E6BE45] shadow-[0_0_25px_rgba(230,190,69,0.2)]'
-                    : 'bg-[#050505] border-[#1C1C1C] hover:border-[#333333]'
-                }`}
-              >
+              <div key={index} className="py-7 transition-colors">
                 <button
                   onClick={() => toggle(index)}
-                  className="w-full text-left p-6 sm:p-7 flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
+                  className="w-full text-left flex items-start justify-between gap-6 cursor-pointer focus:outline-none group"
                   aria-expanded={isOpen}
                 >
-                  <span className="text-base sm:text-lg font-serif font-medium text-[#FFFFFF] leading-snug">
+                  <span className={`text-lg sm:text-xl font-serif leading-snug transition-colors ${
+                    isOpen ? 'text-[#FFFFFF] font-medium' : 'text-[#B8B8B8] group-hover:text-[#FFFFFF]'
+                  }`}>
                     {faq.question}
                   </span>
-                  <ChevronDown
-                    className={`w-5 h-5 text-[#E6BE45] shrink-0 transition-transform duration-200 ${
-                      isOpen ? 'rotate-180' : ''
-                    }`}
-                  />
+                  <span className="shrink-0 mt-1">
+                    <ChevronDown
+                      className={`w-5 h-5 transition-transform duration-300 ${
+                        isOpen ? 'rotate-180 text-[#D8AD36]' : 'text-[#666666] group-hover:text-[#D8AD36]'
+                      }`}
+                    />
+                  </span>
                 </button>
 
-                <div
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                    isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                  }`}
-                >
-                  <div className="p-6 sm:p-7 pt-0 text-sm text-[#CCCCCC] leading-relaxed font-light border-t border-[#1C1C1C] mt-2">
-                    {faq.answer}
+                {isOpen && (
+                  <div className="pt-4 pr-12">
+                    <p className="text-base text-[#B8B8B8] font-light leading-relaxed">
+                      {faq.answer}
+                    </p>
                   </div>
-                </div>
+                )}
               </div>
             );
           })}

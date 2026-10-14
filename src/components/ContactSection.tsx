@@ -88,63 +88,62 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenPrivacy })
   };
 
   return (
-    <section id="contato" className="py-24 lg:py-32 bg-[#050505] relative">
-      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Left Column: Institutional Guidelines & Channels (5 cols) */}
-          <div className="lg:col-span-5">
-            <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.25em] text-[#FFD96A] font-semibold mb-3">
-              <span className="w-8 h-[2px] bg-[#E6BE45]" />
-              <span>ATENDIMENTO TÉCNICO RESERVADO</span>
+    <section id="contato" className="py-28 lg:py-36 bg-[#050505] border-t border-white/[0.06] relative">
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
+          {/* Left Column: Guidelines & Advisory (5 cols) - Directly on Background */}
+          <div className="lg:col-span-5 space-y-10">
+            <div>
+              <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#D8AD36] font-semibold block mb-4">
+                ATENDIMENTO TÉCNICO RESERVADO
+              </span>
+
+              <h2 className="font-serif text-3xl sm:text-5xl text-[#FFFFFF] font-normal leading-tight mb-6">
+                Cada operação exige uma análise própria.
+              </h2>
+
+              <p className="text-lg text-[#B8B8B8] font-light leading-relaxed">
+                Entre em contato com a NS Advocacia para apresentar a situação de sua propriedade ou empresa rural e receber orientações seguras sobre os próximos passos para uma avaliação jurídica detalhada.
+              </p>
             </div>
 
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#FFFFFF] font-normal leading-tight mb-6">
-              Cada operação exige uma análise própria.
-            </h2>
-
-            <p className="text-base sm:text-lg text-[#C8C8C8] font-light leading-relaxed mb-8">
-              Entre em contato com a NS Advocacia para apresentar a situação de sua propriedade ou empresa rural e receber orientações sobre os próximos passos para uma avaliação jurídica detalhada.
-            </p>
-
-            {/* Security Guarantee Box */}
-            <div className="p-6 bg-[#090909] border border-[#1F1F1F] rounded-[1px] space-y-5 mb-8">
-              <div className="flex items-start gap-3.5">
-                <ShieldCheck className="w-5 h-5 text-[#E6BE45] shrink-0 mt-0.5" />
+            {/* Statutory Secrecy & Security Notes — Open Layout */}
+            <div className="pt-8 border-t border-white/[0.08] space-y-6">
+              <div className="flex items-start gap-4">
+                <ShieldCheck className="w-5 h-5 text-[#D8AD36] shrink-0 mt-1" />
                 <div>
-                  <h4 className="text-xs font-semibold text-[#FFFFFF] uppercase tracking-wider mb-1">
+                  <h4 className="text-sm font-semibold text-[#FFFFFF] uppercase tracking-wider mb-1">
                     Sigilo Profissional Estatutário
                   </h4>
-                  <p className="text-xs text-[#9E9E9E] leading-relaxed font-light">
+                  <p className="text-sm text-[#888888] leading-relaxed font-light">
                     Todas as informações compartilhadas estão protegidas pelo sigilo profissional da advocacia (Lei nº 8.906/94) e pela Lei Geral de Proteção de Dados (LGPD).
                   </p>
                 </div>
               </div>
 
-              <div className="hairline-dark" />
-
-              <div className="flex items-start gap-3.5">
-                <AlertCircle className="w-5 h-5 text-[#E6BE45] shrink-0 mt-0.5" />
+              <div className="flex items-start gap-4">
+                <AlertCircle className="w-5 h-5 text-[#D8AD36] shrink-0 mt-1" />
                 <div>
-                  <h4 className="text-xs font-semibold text-[#FFFFFF] uppercase tracking-wider mb-1">
+                  <h4 className="text-sm font-semibold text-[#FFFFFF] uppercase tracking-wider mb-1">
                     Aviso de Segurança Documental
                   </h4>
-                  <p className="text-xs text-[#9E9E9E] leading-relaxed font-light">
-                    Não anexe extratos bancários com senhas ou documentos sigilosos neste formulário público. Após o contato inicial, forneceremos canal seguro e criptografado para o envio do acervo probatório.
+                  <p className="text-sm text-[#888888] leading-relaxed font-light">
+                    Não anexe extratos bancários com senhas ou documentos sigilosos neste formulário público. Após o contato inicial, forneceremos canal seguro para o envio do acervo probatório.
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Direct Channel Button */}
-            <div className="p-5 bg-[#090909] border border-[#1F1F1F] rounded-[1px] flex items-center justify-between">
+            {/* Direct Channel Action */}
+            <div className="pt-8 border-t border-white/[0.08] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
-                <span className="block text-[11px] font-mono uppercase tracking-wider text-[#888888]">Canal Direto</span>
-                <span className="text-sm font-medium text-[#FFFFFF]">Atendimento a Produtores e Empresas Rurais</span>
+                <span className="block text-xs font-mono uppercase tracking-wider text-[#777777]">Canal Direto</span>
+                <span className="text-sm text-[#FFFFFF] font-light">Atendimento reservado a produtores e agroindústrias</span>
               </div>
               <button
                 type="button"
                 onClick={handleWhatsAppDirect}
-                className="px-4 py-2 text-xs font-bold text-[#050505] bg-[#E6BE45] hover:bg-[#FFD96A] rounded-[1px] transition-colors cursor-pointer flex items-center gap-1.5 shadow-[0_0_15px_rgba(230,190,69,0.3)]"
+                className="inline-flex items-center gap-2 px-5 py-3 text-xs font-semibold tracking-wider uppercase text-[#050505] bg-[#D8AD36] hover:bg-[#F3D36A] transition-colors cursor-pointer shrink-0"
               >
                 <MessageSquare className="w-4 h-4" />
                 <span>Mensagem Direta</span>
@@ -152,46 +151,46 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenPrivacy })
             </div>
           </div>
 
-          {/* Right Column: Contact Form (7 cols) */}
-          <div className="lg:col-span-7 bg-[#090909] border border-[#222222] p-8 sm:p-12 rounded-[1px] shadow-[0_10px_50px_rgba(0,0,0,0.9)] relative">
+          {/* Right Column: Clean Form Layout (7 cols) */}
+          <div className="lg:col-span-7">
             {isSubmitted ? (
-              <div className="py-8 text-center space-y-6">
-                <div className="w-16 h-16 bg-[#151515] border-2 border-[#E6BE45] rounded-full flex items-center justify-center mx-auto text-[#FFD96A]">
-                  <CheckCircle2 className="w-8 h-8" />
+              <div className="py-12 space-y-6">
+                <div className="w-14 h-14 bg-[#151515] border border-[#D8AD36] flex items-center justify-center text-[#D8AD36]">
+                  <CheckCircle2 className="w-7 h-7" />
                 </div>
 
-                <div className="space-y-2">
-                  <h3 className="font-serif text-3xl text-[#FFFFFF] font-normal">
+                <div className="space-y-3">
+                  <h3 className="font-serif text-3xl sm:text-4xl text-[#FFFFFF] font-normal">
                     Solicitação Registrada com Sucesso
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#CCCCCC] max-w-md mx-auto leading-relaxed font-light">
+                  <p className="text-base text-[#B8B8B8] leading-relaxed font-light">
                     Recebemos os dados preliminares da sua demanda. Nossa equipe de Direito Bancário e Agronegócio analisará o relato e entrará em contato pelos canais informados.
                   </p>
                 </div>
 
-                {/* Protocol Card */}
-                <div className="p-5 bg-[#050505] border border-[#E6BE45]/50 rounded-[1px] max-w-sm mx-auto flex items-center justify-between">
-                  <div className="text-left">
-                    <span className="block text-[10px] font-mono uppercase tracking-wider text-[#888888]">
+                {/* Protocol Details */}
+                <div className="p-6 bg-[#090909] border border-white/[0.08] flex items-center justify-between">
+                  <div>
+                    <span className="block text-xs font-mono uppercase tracking-wider text-[#777777]">
                       Protocolo de Atendimento
                     </span>
-                    <span className="font-mono text-base font-bold text-[#FFD96A]">
+                    <span className="font-mono text-lg font-bold text-[#F3D36A]">
                       {protocolNumber}
                     </span>
                   </div>
                   <button
                     onClick={handleCopyProtocol}
-                    className="p-2 text-[#CCCCCC] hover:text-[#FFFFFF] rounded transition-colors cursor-pointer"
+                    className="p-2 text-[#888888] hover:text-[#FFFFFF] transition-colors cursor-pointer"
                     title="Copiar Protocolo"
                   >
                     {copied ? <Check className="w-5 h-5 text-emerald-400" /> : <Copy className="w-5 h-5" />}
                   </button>
                 </div>
 
-                <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <div className="pt-4 flex flex-col sm:flex-row items-center gap-4">
                   <button
                     onClick={handleWhatsAppDirect}
-                    className="w-full sm:w-auto px-7 py-3.5 text-xs font-bold tracking-widest uppercase text-[#050505] bg-gradient-to-r from-[#FFD96A] via-[#E6BE45] to-[#B78B24] rounded-[1px] transition-all hover:brightness-115 flex items-center justify-center gap-2 cursor-pointer shadow-[0_0_20px_rgba(230,190,69,0.35)]"
+                    className="w-full sm:w-auto px-8 py-4 text-xs font-semibold tracking-wider uppercase text-[#050505] bg-[#D8AD36] hover:bg-[#F3D36A] transition-colors flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <MessageSquare className="w-4 h-4" />
                     <span>Prosseguir via WhatsApp</span>
@@ -210,45 +209,45 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenPrivacy })
                         consent: false,
                       });
                     }}
-                    className="w-full sm:w-auto px-6 py-3.5 text-xs text-[#A0A0A0] hover:text-[#FFFFFF] border border-[#2B2B2B] rounded-[1px] transition-colors cursor-pointer"
+                    className="w-full sm:w-auto px-6 py-4 text-xs text-[#888888] hover:text-[#FFFFFF] border border-white/[0.1] transition-colors cursor-pointer uppercase tracking-wider"
                   >
                     Novo Envio
                   </button>
                 </div>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} noValidate className="space-y-6">
+              <form onSubmit={handleSubmit} noValidate className="space-y-8">
                 <div>
-                  <h3 className="font-serif text-2xl sm:text-3xl text-[#FFFFFF] font-normal mb-1">
+                  <h3 className="font-serif text-2xl sm:text-3xl text-[#FFFFFF] font-normal mb-2">
                     Formulário de Triagem Inicial
                   </h3>
-                  <p className="text-xs text-[#888888] font-light">
+                  <p className="text-sm text-[#888888] font-light">
                     Preencha os campos abaixo para direcionamento técnico prévio de sua demanda.
                   </p>
                 </div>
 
                 {/* Name */}
-                <div>
-                  <label htmlFor="name" className="block text-xs font-semibold uppercase tracking-wider text-[#D0D0D0] mb-2">
-                    Nome Completo <span className="text-[#FFD96A]">*</span>
+                <div className="space-y-2">
+                  <label htmlFor="name" className="block text-xs font-medium uppercase tracking-wider text-[#B8B8B8]">
+                    Nome Completo <span className="text-[#D8AD36]">*</span>
                   </label>
                   <input
                     type="text"
                     id="name"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    placeholder="Ex: João Roberto da Silva"
-                    className={`w-full bg-[#050505] border rounded-[1px] px-4 py-3 text-sm text-[#FFFFFF] placeholder-[#555555] focus:outline-none transition-colors ${
-                      errors.name ? 'border-red-500 focus:border-red-500' : 'border-[#222222] focus:border-[#E6BE45]'
+                    placeholder="Ex: Roberto da Silva"
+                    className={`w-full bg-[#090909] border px-4 py-3.5 text-base text-[#FFFFFF] placeholder-[#555555] focus:outline-none transition-colors ${
+                      errors.name ? 'border-red-500 focus:border-red-500' : 'border-white/[0.1] focus:border-[#D8AD36]'
                     }`}
                   />
-                  {errors.name && <p className="text-xs text-red-400 mt-1">{errors.name}</p>}
+                  {errors.name && <p className="text-xs text-red-400">{errors.name}</p>}
                 </div>
 
                 {/* Company / Activity */}
-                <div>
-                  <label htmlFor="activityOrCompany" className="block text-xs font-semibold uppercase tracking-wider text-[#D0D0D0] mb-2">
-                    Empresa, Fazenda ou Atividade Rural <span className="text-[#777777] font-normal">(opcional)</span>
+                <div className="space-y-2">
+                  <label htmlFor="activityOrCompany" className="block text-xs font-medium uppercase tracking-wider text-[#B8B8B8]">
+                    Empresa, Fazenda ou Atividade Rural <span className="text-[#666666] font-normal">(opcional)</span>
                   </label>
                   <input
                     type="text"
@@ -256,15 +255,15 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenPrivacy })
                     value={formData.activityOrCompany}
                     onChange={(e) => setFormData({ ...formData, activityOrCompany: e.target.value })}
                     placeholder="Ex: Fazenda Santa Maria / Soja e Milho"
-                    className="w-full bg-[#050505] border border-[#222222] rounded-[1px] px-4 py-3 text-sm text-[#FFFFFF] placeholder-[#555555] focus:outline-none focus:border-[#E6BE45] transition-colors"
+                    className="w-full bg-[#090909] border border-white/[0.1] px-4 py-3.5 text-base text-[#FFFFFF] placeholder-[#555555] focus:outline-none focus:border-[#D8AD36] transition-colors"
                   />
                 </div>
 
                 {/* Email and Phone */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="email" className="block text-xs font-semibold uppercase tracking-wider text-[#D0D0D0] mb-2">
-                      E-mail de Contato <span className="text-[#FFD96A]">*</span>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label htmlFor="email" className="block text-xs font-medium uppercase tracking-wider text-[#B8B8B8]">
+                      E-mail de Contato <span className="text-[#D8AD36]">*</span>
                     </label>
                     <input
                       type="email"
@@ -272,16 +271,16 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenPrivacy })
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="seu.email@dominio.com.br"
-                      className={`w-full bg-[#050505] border rounded-[1px] px-4 py-3 text-sm text-[#FFFFFF] placeholder-[#555555] focus:outline-none transition-colors ${
-                        errors.email ? 'border-red-500 focus:border-red-500' : 'border-[#222222] focus:border-[#E6BE45]'
+                      className={`w-full bg-[#090909] border px-4 py-3.5 text-base text-[#FFFFFF] placeholder-[#555555] focus:outline-none transition-colors ${
+                        errors.email ? 'border-red-500 focus:border-red-500' : 'border-white/[0.1] focus:border-[#D8AD36]'
                       }`}
                     />
-                    {errors.email && <p className="text-xs text-red-400 mt-1">{errors.email}</p>}
+                    {errors.email && <p className="text-xs text-red-400">{errors.email}</p>}
                   </div>
 
-                  <div>
-                    <label htmlFor="phone" className="block text-xs font-semibold uppercase tracking-wider text-[#D0D0D0] mb-2">
-                      Telefone / WhatsApp <span className="text-[#FFD96A]">*</span>
+                  <div className="space-y-2">
+                    <label htmlFor="phone" className="block text-xs font-medium uppercase tracking-wider text-[#B8B8B8]">
+                      Telefone / WhatsApp <span className="text-[#D8AD36]">*</span>
                     </label>
                     <input
                       type="tel"
@@ -289,24 +288,24 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenPrivacy })
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="(00) 00000-0000"
-                      className={`w-full bg-[#050505] border rounded-[1px] px-4 py-3 text-sm text-[#FFFFFF] placeholder-[#555555] focus:outline-none transition-colors ${
-                        errors.phone ? 'border-red-500 focus:border-red-500' : 'border-[#222222] focus:border-[#E6BE45]'
+                      className={`w-full bg-[#090909] border px-4 py-3.5 text-base text-[#FFFFFF] placeholder-[#555555] focus:outline-none transition-colors ${
+                        errors.phone ? 'border-red-500 focus:border-red-500' : 'border-white/[0.1] focus:border-[#D8AD36]'
                       }`}
                     />
-                    {errors.phone && <p className="text-xs text-red-400 mt-1">{errors.phone}</p>}
+                    {errors.phone && <p className="text-xs text-red-400">{errors.phone}</p>}
                   </div>
                 </div>
 
                 {/* Demand Type */}
-                <div>
-                  <label htmlFor="demandType" className="block text-xs font-semibold uppercase tracking-wider text-[#D0D0D0] mb-2">
-                    Tipo de Demanda <span className="text-[#FFD96A]">*</span>
+                <div className="space-y-2">
+                  <label htmlFor="demandType" className="block text-xs font-medium uppercase tracking-wider text-[#B8B8B8]">
+                    Tipo de Demanda <span className="text-[#D8AD36]">*</span>
                   </label>
                   <select
                     id="demandType"
                     value={formData.demandType}
                     onChange={(e) => setFormData({ ...formData, demandType: e.target.value })}
-                    className="w-full bg-[#050505] border border-[#222222] rounded-[1px] px-4 py-3 text-sm text-[#FFFFFF] focus:outline-none focus:border-[#E6BE45] transition-colors"
+                    className="w-full bg-[#090909] border border-white/[0.1] px-4 py-3.5 text-base text-[#FFFFFF] focus:outline-none focus:border-[#D8AD36] transition-colors"
                   >
                     {demandOptions.map((opt, idx) => (
                       <option key={idx} value={opt} className="bg-[#090909] text-[#FFFFFF]">
@@ -317,9 +316,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenPrivacy })
                 </div>
 
                 {/* Description */}
-                <div>
-                  <label htmlFor="description" className="block text-xs font-semibold uppercase tracking-wider text-[#D0D0D0] mb-2">
-                    Descrição Inicial da Situação <span className="text-[#FFD96A]">*</span>
+                <div className="space-y-2">
+                  <label htmlFor="description" className="block text-xs font-medium uppercase tracking-wider text-[#B8B8B8]">
+                    Descrição Inicial da Situação <span className="text-[#D8AD36]">*</span>
                   </label>
                   <textarea
                     id="description"
@@ -327,28 +326,28 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenPrivacy })
                     value={formData.description}
                     onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                     placeholder="Descreva brevemente a modalidade da operação, se há notificação bancária, prazo de vencimento ou processo em andamento..."
-                    className={`w-full bg-[#050505] border rounded-[1px] p-4 text-sm text-[#FFFFFF] placeholder-[#555555] focus:outline-none transition-colors resize-none ${
-                      errors.description ? 'border-red-500 focus:border-red-500' : 'border-[#222222] focus:border-[#E6BE45]'
+                    className={`w-full bg-[#090909] border p-4 text-base text-[#FFFFFF] placeholder-[#555555] focus:outline-none transition-colors resize-none ${
+                      errors.description ? 'border-red-500 focus:border-red-500' : 'border-white/[0.1] focus:border-[#D8AD36]'
                     }`}
                   />
-                  {errors.description && <p className="text-xs text-red-400 mt-1">{errors.description}</p>}
+                  {errors.description && <p className="text-xs text-red-400">{errors.description}</p>}
                 </div>
 
                 {/* Consent */}
-                <div className="pt-1">
+                <div className="pt-2">
                   <label className="flex items-start gap-3 cursor-pointer select-none">
                     <input
                       type="checkbox"
                       checked={formData.consent}
                       onChange={(e) => setFormData({ ...formData, consent: e.target.checked })}
-                      className="mt-0.5 accent-[#E6BE45] h-4 w-4 rounded-[1px]"
+                      className="mt-1 accent-[#D8AD36] h-4 w-4"
                     />
-                    <span className="text-xs text-[#9E9E9E] leading-relaxed">
+                    <span className="text-xs sm:text-sm text-[#888888] leading-relaxed">
                       Concordo com o tratamento dos dados informados para fins de contato profissional, nos termos da{' '}
                       <button
                         type="button"
                         onClick={onOpenPrivacy}
-                        className="text-[#FFD96A] underline hover:text-[#FFFFFF]"
+                        className="text-[#D8AD36] underline hover:text-[#FFFFFF]"
                       >
                         Política de Privacidade e LGPD
                       </button>
@@ -362,14 +361,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenPrivacy })
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-4 px-8 text-xs sm:text-sm font-bold tracking-widest uppercase text-[#050505] bg-gradient-to-r from-[#FFD96A] via-[#E6BE45] to-[#B78B24] rounded-[1px] transition-all duration-200 hover:brightness-115 active:scale-[0.99] flex items-center justify-center gap-3 cursor-pointer disabled:opacity-50 shadow-[0_0_25px_rgba(230,190,69,0.35)]"
+                  className="w-full py-4 px-8 text-xs sm:text-sm font-semibold tracking-wider uppercase text-[#050505] bg-[#D8AD36] hover:bg-[#F3D36A] transition-colors flex items-center justify-center gap-3 cursor-pointer disabled:opacity-50"
                 >
                   {isSubmitting ? (
                     <span>Registrando solicitação...</span>
                   ) : (
                     <>
                       <span>ENVIAR SOLICITAÇÃO DE ANÁLISE</span>
-                      <Send className="w-4 h-4 text-[#050505] stroke-[2.5]" />
+                      <Send className="w-4 h-4 text-[#050505]" />
                     </>
                   )}
                 </button>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Lock, ArrowRight } from 'lucide-react';
+import { ArrowRight, Lock } from 'lucide-react';
 import silosImage from '../assets/images/agro_silos_logistica_1791945718981.jpg';
 
 interface DocumentaryAnalysisProps {
@@ -19,80 +19,70 @@ export const DocumentaryAnalysis: React.FC<DocumentaryAnalysisProps> = ({ onOpen
   ];
 
   return (
-    <section className="py-24 lg:py-32 bg-[#050505] border-b border-[#1A1A1A] relative">
-      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Left Column: Silos Photograph with Sharp Gold Framing (5 cols) */}
-          <div className="lg:col-span-5 order-2 lg:order-1 relative">
-            <div className="relative border border-[#E6BE45]/40 p-2 bg-[#090909] shadow-[0_10px_40px_rgba(0,0,0,0.85)]">
+    <section className="py-28 lg:py-36 bg-[#050505] border-t border-white/[0.06]">
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-16">
+        {/* Header */}
+        <div className="max-w-4xl mb-20">
+          <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#D8AD36] font-semibold block mb-4">
+            INSTRUÇÃO PROBATÓRIA & CONTRATOS
+          </span>
+
+          <h2 className="font-serif text-3xl sm:text-5xl text-[#FFFFFF] font-normal leading-tight mb-6">
+            A força probatória dos contratos e demonstrativos contábeis
+          </h2>
+
+          <p className="text-lg text-[#B8B8B8] font-light leading-relaxed">
+            Em direito bancário agropecuário, alegações sem respaldo documental não encontram acolhida nem em mesas de renegociação nem perante os tribunais. A precisão da assessoria depende diretamente da higidez e integridade do acervo contratual disponibilizado.
+          </p>
+        </div>
+
+        {/* Spacious 2-Column Split: Big Photography on Left, Clean Typographic Document List on Right */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-start mb-16">
+          {/* Left: Large Photo */}
+          <div className="lg:col-span-5 space-y-4">
+            <div className="overflow-hidden">
               <img
                 src={silosImage}
-                alt="Estrutura industrial de armazenagem e silos de grãos"
-                className="w-full h-[500px] object-cover object-center grayscale-[10%] hover:grayscale-0 transition-all duration-700"
+                alt="Infraestrutura industrial de armazenagem e silos de grãos"
+                className="w-full h-[520px] lg:h-[620px] object-cover object-center"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent" />
+            </div>
+            <div className="flex items-start gap-3 pt-2 text-xs text-[#777777] font-light leading-relaxed">
+              <Lock className="w-4 h-4 text-[#D8AD36] shrink-0 mt-0.5" />
+              <span>
+                Sigilo bancário: documentos financeiros são analisados sob protocolo confidencial. Não envie senhas ou dados bancários desprotegidos.
+              </span>
+            </div>
+          </div>
 
-              <div className="absolute bottom-4 inset-x-4 p-5 bg-[#090909]/95 border-t border-[#E6BE45]/30 backdrop-blur-md">
-                <div className="flex items-center gap-2 text-[#FFD96A] text-xs font-mono uppercase tracking-wider font-semibold mb-1">
-                  <Lock className="w-3.5 h-3.5" />
-                  <span>Protocolo de Sigilo Bancário</span>
-                </div>
-                <p className="text-xs text-[#C8C8C8] font-light leading-relaxed">
-                  Documentos financeiros contêm dados protegidos por sigilo fiscal e bancário. Não transmitimos nem recebemos arquivos sensíveis por canais públicos sem protocolo prévio.
+          {/* Right: Open Typographic List (No Boxes) */}
+          <div className="lg:col-span-7 divide-y divide-white/[0.08] border-t border-b border-white/[0.08]">
+            {documentTypes.map((doc, idx) => (
+              <div key={idx} className="py-5 sm:py-6">
+                <h3 className="text-lg font-serif text-[#FFFFFF] mb-1 font-medium">
+                  {doc.name}
+                </h3>
+                <p className="text-sm text-[#B8B8B8] font-light leading-relaxed">
+                  {doc.desc}
                 </p>
               </div>
-            </div>
+            ))}
           </div>
+        </div>
 
-          {/* Right Column: Documentary Rigor & Breakdown (7 cols) */}
-          <div className="lg:col-span-7 order-1 lg:order-2">
-            <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.25em] text-[#FFD96A] font-semibold mb-3">
-              <span className="w-8 h-[2px] bg-[#E6BE45]" />
-              <span>INSTRUÇÃO PROBATÓRIA & CONTRATOS</span>
-            </div>
-
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#FFFFFF] font-normal leading-tight mb-6">
-              A força probatória dos contratos e demonstrativos contábeis
-            </h2>
-
-            <p className="text-base sm:text-lg text-[#C8C8C8] font-light leading-relaxed mb-6">
-              Em direito bancário agropecuário, alegações sem respaldo documental não encontram acolhida nem em mesas de renegociação nem perante os tribunais. A precisão da assessoria depende diretamente da higidez e integridade do acervo contratual disponibilizado.
-            </p>
-
-            <p className="text-xs text-[#888888] leading-relaxed mb-8 italic">
-              A relação abaixo é exemplificativa e varia conforme a modalidade de operação e o objetivo específico da consulta. Nem todos os documentos são exigidos em todos os casos.
-            </p>
-
-            {/* Grid of Documents */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-              {documentTypes.map((doc, idx) => (
-                <div key={idx} className="p-4 bg-[#090909] border border-[#1C1C1C] hover:border-[#E6BE45]/40 transition-colors">
-                  <span className="block text-xs sm:text-sm font-semibold text-[#FFFFFF] mb-1">
-                    {doc.name}
-                  </span>
-                  <p className="text-xs text-[#999999] leading-snug font-light">
-                    {doc.desc}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            {/* Advisory regarding security of sensitive documents */}
-            <div className="p-5 bg-[#0D0D0D] border-l-2 border-[#E6BE45] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
-              <div className="text-xs text-[#C0C0C0] leading-relaxed">
-                <strong className="text-[#FFFFFF] block mb-0.5">Como apresentar sua documentação:</strong>
-                Entre em contato pelo formulário ou canal oficial para receber orientações seguras sobre a triagem e compartilhamento confidencial dos contratos.
-              </div>
-              <button
-                onClick={onOpenContact}
-                className="inline-flex items-center gap-2 text-xs font-bold tracking-wider uppercase text-[#FFD96A] hover:text-[#FFFFFF] transition-colors shrink-0 cursor-pointer"
-              >
-                <span>Falar com o escritório</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </button>
-            </div>
-          </div>
+        {/* Clean Advisory Bar */}
+        <div className="pt-10 border-t border-white/[0.08] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <p className="text-sm text-[#B8B8B8] font-light max-w-2xl">
+            A relação acima é exemplificativa. Entre em contato com a equipe jurídica para receber instruções seguras sobre a triagem prévia do acervo documental de sua operação.
+          </p>
+          <button
+            onClick={onOpenContact}
+            className="inline-flex items-center gap-2 text-[13px] font-semibold uppercase tracking-wider text-[#D8AD36] hover:text-[#FFFFFF] transition-colors shrink-0 cursor-pointer"
+          >
+            <span>Falar com o escritório</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
         </div>
       </div>
     </section>

@@ -18,6 +18,7 @@ import RuralEstateStructure from './components/RuralEstateStructure';
 import LegalArticles from './components/LegalArticles';
 import FAQSection from './components/FAQSection';
 import ContactSection from './components/ContactSection';
+import Agro360Solutions from './components/Agro360Solutions';
 import Footer from './components/Footer';
 import PrivacyModal from './components/PrivacyModal';
 
@@ -82,9 +83,12 @@ export default function App() {
 
         {/* 14. Contato e Triagem Institucional */}
         <ContactSection onOpenPrivacy={() => setPrivacyModalOpen(true)} />
+
+        {/* 15. Soluções Jurídicas 360° para o Agronegócio */}
+        <Agro360Solutions onOpenContact={handleOpenContact} />
       </main>
 
-      {/* 15. Rodapé Institucional Completo */}
+      {/* 16. Rodapé Institucional Completo */}
       <Footer
         onOpenPrivacy={() => setPrivacyModalOpen(true)}
         onOpenContact={handleOpenContact}

@@ -1,12 +1,10 @@
 import React from 'react';
-import { FileSearch, FolderCheck, Building2, Compass } from 'lucide-react';
 
 export const Methodology: React.FC = () => {
   const axes = [
     {
       number: '01',
       title: 'Contratos, Encargos e Riscos',
-      icon: FileSearch,
       summary:
         'Análise exaustiva dos instrumentos contratuais vigentes, encargos pactuados, obrigações recíprocas, cláusulas de vencimento antecipado e taxas praticadas, confrontadas com os limites regulatórios aplicáveis ao crédito rural.',
       details: [
@@ -19,7 +17,6 @@ export const Methodology: React.FC = () => {
     {
       number: '02',
       title: 'Documentação e Prova',
-      icon: FolderCheck,
       summary:
         'Triagem e consolidação documental de todo o histórico da relação financeira: instrumentos originários, termos aditivos, extratos de movimentação, comprovantes de entrega de safras, notificações recebidas e eventuais laudos agronômicos.',
       details: [
@@ -32,7 +29,6 @@ export const Methodology: React.FC = () => {
     {
       number: '03',
       title: 'Garantias e Estrutura Patrimonial',
-      icon: Building2,
       summary:
         'Exame detalhado da extensão dos gravames constituídos, diferenciando garantias reais imobiliárias (alienação fiduciária e hipoteca) de garantias mobiliárias (penhor de safra e máquinas) e pessoais (aval e fiança).',
       details: [
@@ -45,7 +41,6 @@ export const Methodology: React.FC = () => {
     {
       number: '04',
       title: 'Prazos e Estratégia Jurídica',
-      icon: Compass,
       summary:
         'Ponderação dos prazos decadenciais, prescricionais e processuais em curso, definindo o momento e o ambiente adequado de intervenção: mesa de negociação extrajudicial preventiva ou ajuizamento de medidas judiciais pertinentes.',
       details: [
@@ -58,70 +53,62 @@ export const Methodology: React.FC = () => {
   ];
 
   return (
-    <section id="metodologia" className="py-24 lg:py-32 bg-[#090909] border-b border-[#1A1A1A] relative">
-      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14">
+    <section id="metodologia" className="py-28 lg:py-36 bg-[#090909]">
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-16">
         {/* Header */}
-        <div className="max-w-3xl mb-16">
-          <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.25em] text-[#FFD96A] font-semibold mb-3">
-            <span className="w-8 h-[2px] bg-[#E6BE45]" />
-            <span>METODOLOGIA JURÍDICA ESTRUTURADA</span>
-          </div>
+        <div className="max-w-4xl mb-24">
+          <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#D8AD36] font-semibold block mb-4">
+            MÉTODO DE ANÁLISE EM QUATRO EIXOS
+          </span>
 
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#FFFFFF] font-normal leading-tight mb-4">
-            Quatro eixos de rigor técnico para operações bancárias rurais
+          <h2 className="font-serif text-3xl sm:text-5xl text-[#FFFFFF] font-normal leading-tight mb-6">
+            Rigor técnico e estruturação analítica para operações rurais
           </h2>
 
-          <p className="text-base sm:text-lg text-[#C8C8C8] font-light leading-relaxed">
+          <p className="text-lg text-[#B8B8B8] font-light leading-relaxed">
             Sem recorrer a fórmulas prontas ou promessas infundadas, a assessoria jurídica se desenvolve a partir de quatro eixos analíticos complementares que permitem compreender com exatidão o cenário de cada produtor.
           </p>
         </div>
 
-        {/* Continuous Magazine Editorial Sequence */}
-        <div className="space-y-12">
-          {axes.map((axis, index) => {
-            const Icon = axis.icon;
-            return (
-              <div key={index} className="pt-10 border-t border-[#1F1F1F]">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                  {/* Left Column: Number & Title (4 cols) */}
-                  <div className="lg:col-span-4">
-                    <span className="text-xs font-mono font-bold tracking-widest text-[#FFD96A] block mb-2">
-                      EIXO {axis.number}
-                    </span>
-                    <h3 className="font-serif text-2xl sm:text-3xl text-[#FFFFFF] font-normal leading-snug mb-4">
-                      {axis.title}
-                    </h3>
-                    <div className="flex items-center gap-3 text-[#E6BE45]">
-                      <Icon className="w-5 h-5 text-[#FFD96A]" />
-                      <div className="h-[2px] w-20 bg-gradient-to-r from-[#E6BE45] to-transparent" />
-                    </div>
-                  </div>
+        {/* 4 Open Editorial Chapters with Big Expressive Numbers (No Cards) */}
+        <div className="divide-y divide-white/[0.08] border-t border-b border-white/[0.08]">
+          {axes.map((axis, index) => (
+            <div key={index} className="py-16 lg:py-20">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+                {/* Large Artistic Number (2 cols) */}
+                <div className="lg:col-span-2">
+                  <span className="font-serif text-6xl sm:text-7xl lg:text-8xl text-[#D8AD36] font-light leading-none">
+                    {axis.number}
+                  </span>
+                </div>
 
-                  {/* Middle Column: Summary (4 cols) */}
-                  <div className="lg:col-span-4">
-                    <p className="text-sm sm:text-base text-[#D0D0D0] leading-relaxed font-light">
-                      {axis.summary}
-                    </p>
-                  </div>
+                {/* Title & Core Commentary (5 cols) */}
+                <div className="lg:col-span-5 space-y-4">
+                  <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#FFFFFF] font-normal leading-snug">
+                    {axis.title}
+                  </h3>
+                  <p className="text-base sm:text-lg text-[#B8B8B8] font-light leading-relaxed">
+                    {axis.summary}
+                  </p>
+                </div>
 
-                  {/* Right Column: Key Verification Checks (4 cols) */}
-                  <div className="lg:col-span-4 bg-[#050505] border border-[#222222] p-6 rounded-[1px]">
-                    <span className="block text-xs font-mono uppercase tracking-wider text-[#FFD96A] font-bold mb-4">
-                      Procedimentos Abrangidos
-                    </span>
-                    <ul className="space-y-2.5">
-                      {axis.details.map((detail, idx) => (
-                        <li key={idx} className="text-xs text-[#A0A0A0] flex items-start gap-2.5 leading-relaxed font-light">
-                          <span className="text-[#E6BE45] select-none font-mono font-bold">›</span>
-                          <span>{detail}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                {/* Scope & Detailed Procedures (5 cols) - Clean Typographic List */}
+                <div className="lg:col-span-5 space-y-4 pt-2 lg:pt-0">
+                  <span className="font-mono text-xs uppercase tracking-widest text-[#FFFFFF] font-semibold block">
+                    Procedimentos Técnicos
+                  </span>
+                  <ul className="space-y-3">
+                    {axis.details.map((detail, idx) => (
+                      <li key={idx} className="flex items-start gap-3.5 text-sm sm:text-base text-[#B8B8B8] font-light leading-relaxed">
+                        <span className="text-[#D8AD36] font-bold mt-0.5 select-none">―</span>
+                        <span>{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </div>
     </section>

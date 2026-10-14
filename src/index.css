@@ -10,12 +10,13 @@
   body {
     font-family: var(--font-sans);
     background-color: #050505;
-    color: #f5f5f5;
+    color: #FFFFFF;
     overflow-x: hidden;
   }
 
   h1, h2, h3, .font-serif {
     font-family: var(--font-serif);
+    letter-spacing: -0.01em;
   }
 
   .font-display {
@@ -23,12 +24,12 @@
   }
 }
 
-/* Obsidian & Intense Gold Utilities */
-.bg-obsidian {
+/* Palette: Obsidian Black & Pure Gold */
+.bg-deep-black {
   background-color: #050505;
 }
 
-.bg-deep-black {
+.bg-obsidian {
   background-color: #090909;
 }
 
@@ -36,58 +37,50 @@
   background-color: #151515;
 }
 
-.text-gold-vivid {
-  color: #E6BE45;
+.text-gold-main {
+  color: #D8AD36;
 }
 
 .text-gold-luminous {
-  color: #FFD96A;
+  color: #F3D36A;
+}
+
+.text-body-muted {
+  color: #B8B8B8;
 }
 
 .text-gold-gradient {
-  background: linear-gradient(135deg, #FFF1B8 0%, #FFD96A 35%, #E6BE45 65%, #B78B24 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, #F3D36A 40%, #D8AD36 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.bg-gold-vivid {
-  background: linear-gradient(135deg, #FFD96A 0%, #E6BE45 60%, #B78B24 100%);
+.bg-gold-action {
+  background: linear-gradient(135deg, #F3D36A 0%, #D8AD36 100%);
 }
 
-.border-gold-intense {
-  border-color: #E6BE45;
-}
-
-.border-gold-subtle {
-  border-color: rgba(230, 190, 69, 0.28);
-}
-
-.border-gold-glow {
-  border-color: rgba(255, 217, 106, 0.6);
-  box-shadow: 0 0 15px rgba(230, 190, 69, 0.15);
+/* Minimal subtle hairlines */
+.hairline-subtle {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
 .hairline-gold {
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(230, 190, 69, 0.5) 30%, rgba(255, 217, 106, 0.8) 50%, rgba(230, 190, 69, 0.5) 70%, transparent 100%);
+  background-color: rgba(216, 173, 54, 0.3);
 }
 
-.hairline-dark {
-  height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.12) 50%, transparent 100%);
-}
-
-/* Custom scrollbar in obsidian and vivid gold */
+/* Custom minimal scrollbar */
 ::-webkit-scrollbar {
-  width: 7px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
   background: #050505;
 }
 ::-webkit-scrollbar-thumb {
-  background: #222222;
-  border-radius: 2px;
+  background: #1f1f1f;
+  border-radius: 1px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #E6BE45;
+  background: #D8AD36;
 }

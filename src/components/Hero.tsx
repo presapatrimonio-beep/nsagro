@@ -1,6 +1,6 @@
 import React from 'react';
-import { ChevronRight, ArrowDown } from 'lucide-react';
-import heroImage from '../assets/images/hero_agronegocio_lavoura_1791945719310.jpg';
+import { ArrowUpRight, ArrowDown } from 'lucide-react';
+import heroImage from '../assets/images/agro_complexo_estrategico_1791995435673.jpg';
 
 interface HeroProps {
   onOpenContact: () => void;
@@ -9,113 +9,100 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ onOpenContact, onExploreClick }) => {
   return (
-    <section id="top" className="relative min-h-screen flex flex-col justify-between bg-[#050505] overflow-hidden pt-28 lg:pt-32">
-      {/* Background & Asymmetrical Cinematic Photography */}
+    <section id="top" className="relative min-h-[96vh] flex flex-col justify-between bg-[#050505] overflow-hidden pt-36 sm:pt-44">
+      {/* Background Cinematic Photography — High-Impact Combine Harvester Fleet Harvest */}
       <div className="absolute inset-0 z-0">
-        <div className="relative w-full h-full">
-          {/* Main Hero Photograph with Rich Golden Hour Illumination */}
-          <img
-            src={heroImage}
-            alt="Operação agrícola brasileira com lavouras e maquinário ao pôr do sol"
-            className="w-full h-full object-cover object-[70%_center] lg:object-right transition-transform duration-1000"
-            referrerPolicy="no-referrer"
-          />
-
-          {/* Measured Obsidian Gradient Overlays: Intense on text area (left), transparent on photography (right) */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/90 via-55% to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent via-40% to-[#050505]/70" />
-          <div className="absolute inset-y-0 left-0 w-full lg:w-3/5 bg-gradient-to-r from-[#050505] via-[#050505]/95 to-transparent pointer-events-none" />
-        </div>
+        <img
+          src={heroImage}
+          alt="Operação agrícola brasileira de grande escala com colheitadeiras e caminhões sob o pôr do sol"
+          className="w-full h-full object-cover object-[70%_center] lg:object-center brightness-95 contrast-105"
+          referrerPolicy="no-referrer"
+        />
+        {/* Soft, natural gradient overlay: deep obsidian black on the left for crisp typography, preserving photographic depth */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/85 via-45% to-[#050505]/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent via-25% to-black/30" />
       </div>
 
-      {/* Main Content: Asymmetrical Architecture */}
-      <div className="relative z-10 max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14 w-full flex-1 flex flex-col justify-center py-12 lg:py-20">
-        <div className="max-w-2xl lg:max-w-3xl">
-          {/* Identificação Institucional da Área */}
-          <div className="mb-8 flex flex-col">
-            <span className="font-mono text-xs sm:text-sm tracking-[0.28em] uppercase text-[#FFD96A] font-bold">
+      {/* Main Content Area */}
+      <div className="relative z-10 max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-16 w-full flex-1 flex flex-col justify-center py-12 lg:py-24">
+        <div className="max-w-3xl lg:max-w-4xl">
+          {/* Institutional Identification Text */}
+          <div className="mb-8 space-y-1.5">
+            <span className="font-mono text-xs sm:text-sm tracking-[0.25em] uppercase text-[#F3D36A] font-semibold block">
               DIREITO BANCÁRIO & AGRONEGÓCIO
             </span>
-            <span className="text-xs sm:text-sm text-[#D0D0D0] tracking-wider mt-1 font-light">
+            <span className="text-sm sm:text-base text-[#D0D0D0] tracking-wide font-light block">
               Assessoria Jurídica Estratégica em Operações Financeiras Rurais
             </span>
           </div>
 
-          {/* Mandatory Headline: High-Contrast Editorial Serif */}
-          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-[#FFFFFF] font-normal leading-[1.08] tracking-tight mb-8">
+          {/* Large Hero Title */}
+          <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl text-[#FFFFFF] font-normal leading-[1.08] tracking-tight mb-8">
             Crédito, patrimônio e estratégia jurídica no{' '}
-            <span className="text-[#FFD96A] font-medium drop-shadow-[0_2px_20px_rgba(255,217,106,0.35)]">
+            <span className="text-[#F3D36A] font-medium">
               agronegócio.
             </span>
           </h1>
 
-          {/* Institutional Body Paragraph */}
-          <p className="text-base sm:text-lg text-[#D0D0D0] leading-relaxed font-light max-w-2xl mb-12">
+          {/* Generous Lead Paragraph */}
+          <p className="text-lg sm:text-xl text-[#B8B8B8] leading-relaxed font-light max-w-2xl mb-12">
             Operações de crédito rural, garantias e passivos bancários exigem análise jurídica que considere os contratos, a documentação, a estrutura patrimonial e o ciclo produtivo de cada operação.
           </p>
 
-          {/* Command Buttons with Intense Contrast */}
+          {/* Clean, Prominent Buttons */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-5">
             <button
               onClick={onOpenContact}
-              className="inline-flex items-center justify-center gap-3 px-8 py-4 sm:py-5 text-xs sm:text-sm font-bold tracking-widest uppercase text-[#050505] bg-gradient-to-r from-[#FFD96A] via-[#E6BE45] to-[#B78B24] rounded-[1px] shadow-[0_0_30px_rgba(230,190,69,0.45)] hover:shadow-[0_0_40px_rgba(230,190,69,0.65)] hover:brightness-110 active:scale-[0.98] transition-all duration-200 cursor-pointer whitespace-nowrap"
+              className="inline-flex items-center justify-center gap-3 px-9 py-4 sm:py-5 text-[13px] font-semibold tracking-wider uppercase text-[#050505] bg-[#D8AD36] hover:bg-[#F3D36A] transition-colors duration-200 cursor-pointer shadow-[0_4px_20px_rgba(216,173,54,0.35)]"
             >
-              <span>SOLICITAR ANÁLISE INICIAL</span>
-              <ChevronRight className="w-4 h-4 text-[#050505] stroke-[3]" />
+              <span>Solicitar Análise Inicial</span>
+              <ArrowUpRight className="w-4 h-4 text-[#050505]" />
             </button>
 
             <button
               onClick={onExploreClick}
-              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 sm:py-5 text-xs sm:text-sm font-semibold tracking-widest uppercase text-[#FFFFFF] bg-[#050505]/90 hover:bg-[#151515] border-2 border-[#E6BE45] hover:border-[#FFD96A] rounded-[1px] shadow-[0_0_15px_rgba(0,0,0,0.8)] transition-all duration-200 cursor-pointer whitespace-nowrap"
+              className="inline-flex items-center justify-center gap-2.5 px-9 py-4 sm:py-5 text-[13px] font-medium tracking-wider uppercase text-[#FFFFFF] bg-transparent hover:bg-white/[0.06] border border-[#D8AD36] transition-colors duration-200 cursor-pointer"
             >
-              <span>CONHECER A ATUAÇÃO</span>
-              <ArrowDown className="w-4 h-4 text-[#E6BE45] stroke-[2.5]" />
+              <span>Conhecer a Atuação</span>
+              <ArrowDown className="w-4 h-4 text-[#D8AD36]" />
             </button>
           </div>
         </div>
       </div>
 
-      {/* Redesigned Architectural Ribbon (Eliminating PowerPoint Slide Card Appearance) */}
-      <div className="relative z-10 w-full bg-[#090909]/95 border-t border-b border-[#E6BE45]/35 backdrop-blur-md">
-        <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14 py-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 lg:divide-x lg:divide-[#E6BE45]/25">
-            <div className="lg:px-6 first:lg:pl-0">
-              <div className="flex items-baseline gap-2.5 mb-1.5">
-                <span className="font-mono text-xs font-bold text-[#FFD96A]">01.</span>
-                <span className="text-sm font-serif font-medium uppercase tracking-wider text-[#FFFFFF]">Ciclo & Safra</span>
-              </div>
-              <p className="text-xs text-[#A8A8A8] font-light leading-snug">
-                Sincronismo entre vencimentos de cédulas e colheita de grãos
+      {/* Seamless Editorial Horizontal Ribbon - No Cards, Clean Spacing & Delicate Hairline Dividers */}
+      <div className="relative z-10 w-full border-t border-b border-white/[0.08] bg-[#050505]/85 backdrop-blur-md">
+        <div className="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-16 py-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 lg:divide-x lg:divide-white/[0.08]">
+            <div className="lg:pr-8">
+              <span className="font-mono text-xs text-[#D8AD36] font-medium block mb-1.5">01.</span>
+              <h2 className="text-base font-serif font-medium text-[#FFFFFF] mb-1">Ciclo & Safra</h2>
+              <p className="text-[14px] text-[#B8B8B8] font-light leading-relaxed">
+                Sincronismo entre vencimentos contratuais e colheita
               </p>
             </div>
 
-            <div className="lg:px-6">
-              <div className="flex items-baseline gap-2.5 mb-1.5">
-                <span className="font-mono text-xs font-bold text-[#FFD96A]">02.</span>
-                <span className="text-sm font-serif font-medium uppercase tracking-wider text-[#FFFFFF]">Instrumentos & Títulos</span>
-              </div>
-              <p className="text-xs text-[#A8A8A8] font-light leading-snug">
-                Auditoria de CPR física/financeira, CCB, CCR, CDCA e contratos
+            <div className="lg:px-8">
+              <span className="font-mono text-xs text-[#D8AD36] font-medium block mb-1.5">02.</span>
+              <h2 className="text-base font-serif font-medium text-[#FFFFFF] mb-1">Instrumentos & Títulos</h2>
+              <p className="text-[14px] text-[#B8B8B8] font-light leading-relaxed">
+                Auditoria de CPR física e financeira, CCB, CCR e CDCA
               </p>
             </div>
 
-            <div className="lg:px-6">
-              <div className="flex items-baseline gap-2.5 mb-1.5">
-                <span className="font-mono text-xs font-bold text-[#FFD96A]">03.</span>
-                <span className="text-sm font-serif font-medium uppercase tracking-wider text-[#FFFFFF]">Garantias & Risco</span>
-              </div>
-              <p className="text-xs text-[#A8A8A8] font-light leading-snug">
-                Alienação fiduciária de terras, penhor agrícola e avais familiares
+            <div className="lg:px-8">
+              <span className="font-mono text-xs text-[#D8AD36] font-medium block mb-1.5">03.</span>
+              <h2 className="text-base font-serif font-medium text-[#FFFFFF] mb-1">Garantias & Risco</h2>
+              <p className="text-[14px] text-[#B8B8B8] font-light leading-relaxed">
+                Alienação fiduciária, penhor agrícola e avais familiares
               </p>
             </div>
 
-            <div className="lg:px-6 last:lg:pr-0">
-              <div className="flex items-baseline gap-2.5 mb-1.5">
-                <span className="font-mono text-xs font-bold text-[#FFD96A]">04.</span>
-                <span className="text-sm font-serif font-medium uppercase tracking-wider text-[#FFFFFF]">Passivos & Defesa</span>
-              </div>
-              <p className="text-xs text-[#A8A8A8] font-light leading-snug">
-                Repactuação preventiva e atuação contenciosa em execuções
+            <div className="lg:pl-8">
+              <span className="font-mono text-xs text-[#D8AD36] font-medium block mb-1.5">04.</span>
+              <h2 className="text-base font-serif font-medium text-[#FFFFFF] mb-1">Passivos & Defesa</h2>
+              <p className="text-[14px] text-[#B8B8B8] font-light leading-relaxed">
+                Repactuação preventiva e contencioso estratégico
               </p>
             </div>
           </div>
