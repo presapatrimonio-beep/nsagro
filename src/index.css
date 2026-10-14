@@ -9,8 +9,8 @@
 
   body {
     font-family: var(--font-sans);
-    background-color: #0c0c0e;
-    color: #ede8df;
+    background-color: #050505;
+    color: #f5f5f5;
     overflow-x: hidden;
   }
 
@@ -23,63 +23,71 @@
   }
 }
 
-/* Gold Gradient Utilities */
+/* Obsidian & Intense Gold Utilities */
+.bg-obsidian {
+  background-color: #050505;
+}
+
+.bg-deep-black {
+  background-color: #090909;
+}
+
+.bg-graphite {
+  background-color: #151515;
+}
+
+.text-gold-vivid {
+  color: #E6BE45;
+}
+
+.text-gold-luminous {
+  color: #FFD96A;
+}
+
 .text-gold-gradient {
-  background: linear-gradient(135deg, #fceec5 0%, #d4af37 45%, #9b7428 100%);
+  background: linear-gradient(135deg, #FFF1B8 0%, #FFD96A 35%, #E6BE45 65%, #B78B24 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.text-gold-shimmer {
-  background: linear-gradient(90deg, #d4af37 0%, #fff0b8 50%, #d4af37 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.bg-gold-vivid {
+  background: linear-gradient(135deg, #FFD96A 0%, #E6BE45 60%, #B78B24 100%);
 }
 
-.bg-gold-gradient {
-  background: linear-gradient(135deg, #e5c365 0%, #c59b27 50%, #8e6817 100%);
+.border-gold-intense {
+  border-color: #E6BE45;
 }
 
 .border-gold-subtle {
-  border-color: rgba(212, 175, 55, 0.22);
+  border-color: rgba(230, 190, 69, 0.28);
 }
 
-.border-gold-medium {
-  border-color: rgba(212, 175, 55, 0.45);
+.border-gold-glow {
+  border-color: rgba(255, 217, 106, 0.6);
+  box-shadow: 0 0 15px rgba(230, 190, 69, 0.15);
 }
 
-/* Subtle hairline divider */
 .hairline-gold {
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.35) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(230, 190, 69, 0.5) 30%, rgba(255, 217, 106, 0.8) 50%, rgba(230, 190, 69, 0.5) 70%, transparent 100%);
 }
 
 .hairline-dark {
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.08) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.12) 50%, transparent 100%);
 }
 
-/* Luxury card surface */
-.bg-noir-surface {
-  background-color: #131316;
-}
-
-.bg-noir-elevated {
-  background-color: #18181c;
-}
-
-/* Custom subtle scrollbar */
+/* Custom scrollbar in obsidian and vivid gold */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: #0c0c0e;
+  background: #050505;
 }
 ::-webkit-scrollbar-thumb {
-  background: #2a2824;
-  border-radius: 4px;
+  background: #222222;
+  border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #c59b27;
+  background: #E6BE45;
 }

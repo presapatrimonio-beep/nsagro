@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Scale, AlertOctagon, CheckSquare } from 'lucide-react';
+import { CheckSquare } from 'lucide-react';
 import harvestImage from '../assets/images/agro_maquinas_colheita_1791945719211.jpg';
 
 export const LitigationSection: React.FC = () => {
@@ -13,38 +13,37 @@ export const LitigationSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 lg:py-28 bg-[#0c0c0e] relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 lg:py-32 bg-[#050505] border-b border-[#1A1A1A] relative">
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column: Litigation Strategy (7 cols) */}
           <div className="lg:col-span-7">
-            <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-[#d4af37] mb-3">
-              <span>Atuação Processual</span>
-              <span aria-hidden="true" className="text-[#8e6817]">·</span>
-              <span>Defesa Técnica Qualificada</span>
+            <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.25em] text-[#FFD96A] font-semibold mb-3">
+              <span className="w-8 h-[2px] bg-[#E6BE45]" />
+              <span>ATUAÇÃO PROCESSUAL ESTRATÉGICA</span>
             </div>
 
-            <h2 className="font-serif text-3xl sm:text-4xl text-[#f5eedc] font-normal leading-tight mb-5">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#FFFFFF] font-normal leading-tight mb-6">
               Contencioso judicial fundamentado e medidas de urgência
             </h2>
 
-            <p className="text-base text-[#bcb3a7] font-light leading-relaxed mb-6">
+            <p className="text-base sm:text-lg text-[#C8C8C8] font-light leading-relaxed mb-6">
               A judicialização de controvérsias bancárias no agronegócio não deve ser adotada como artifício protelatório temerário, mas sim como instrumento legítimo e técnico para restabelecer o equilíbrio contratual e fazer cessar atos ilegais de expropriação.
             </p>
 
-            <p className="text-sm text-[#9b9487] font-light leading-relaxed mb-8">
+            <p className="text-sm text-[#9E9E9E] font-light leading-relaxed mb-8">
               A escolha da medida judicial cabível decorre de uma ponderação estrita de variáveis jurídicas, assegurando que o cliente compreenda os riscos de sucumbência, os custos processuais e a probabilidade de êxito em cada instância recursal.
             </p>
 
-            {/* Criteria Grid */}
+            {/* Criteria Grid with Gold Checks */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {criteria.map((item, index) => (
-                <div key={index} className="p-4 bg-[#121215] border border-[#202026] rounded-sm">
-                  <div className="flex items-center gap-2 text-xs font-semibold text-[#f5eedc] mb-1">
-                    <CheckSquare className="w-3.5 h-3.5 text-[#d4af37]" />
+                <div key={index} className="p-4 bg-[#090909] border border-[#1F1F1F] hover:border-[#E6BE45]/40 transition-colors">
+                  <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#FFFFFF] mb-1.5">
+                    <CheckSquare className="w-4 h-4 text-[#E6BE45] shrink-0" />
                     <span>{item.title}</span>
                   </div>
-                  <p className="text-[11px] text-[#8e877a] leading-relaxed">
+                  <p className="text-xs text-[#999999] leading-relaxed font-light">
                     {item.desc}
                   </p>
                 </div>
@@ -54,20 +53,20 @@ export const LitigationSection: React.FC = () => {
 
           {/* Right Column: Image with Harvest Machinery & Rigorous Framing (5 cols) */}
           <div className="lg:col-span-5 relative">
-            <div className="relative rounded-sm overflow-hidden border border-[#d4af37]/25 shadow-2xl">
+            <div className="relative border border-[#E6BE45]/40 p-2 bg-[#090909] shadow-[0_10px_40px_rgba(0,0,0,0.85)]">
               <img
                 src={harvestImage}
                 alt="Colheitadeiras em operação agrícola — proteção da atividade produtiva"
-                className="w-full h-[460px] object-cover object-center grayscale-[15%] hover:grayscale-0 transition-all duration-700"
+                className="w-full h-[500px] object-cover object-center grayscale-[10%] hover:grayscale-0 transition-all duration-700"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0e] via-[#0c0c0e]/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent" />
 
-              <div className="absolute bottom-0 inset-x-0 p-6 bg-[#0e0e11]/95 backdrop-blur-md border-t border-[#d4af37]/20">
-                <span className="block text-[11px] font-mono tracking-wider uppercase text-[#d4af37] mb-1">
+              <div className="absolute bottom-4 inset-x-4 p-5 bg-[#090909]/95 border-t border-[#E6BE45]/30 backdrop-blur-md">
+                <span className="block text-xs font-mono tracking-wider uppercase text-[#FFD96A] font-semibold mb-1">
                   Princípio da Continuidade da Empresa Rural
                 </span>
-                <p className="text-xs text-[#bcb3a7] font-light leading-relaxed">
+                <p className="text-xs text-[#C8C8C8] font-light leading-relaxed">
                   A atividade agropecuária cumpre relevante função social e econômica. A atuação jurídica busca resguardar os instrumentos de produção contra constrições ilegais.
                 </p>
               </div>

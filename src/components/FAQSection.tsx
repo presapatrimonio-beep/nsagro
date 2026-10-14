@@ -57,48 +57,48 @@ export const FAQSection: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="py-20 lg:py-28 bg-[#0e0e11] border-b border-[#212126] relative">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="faq" className="py-24 lg:py-32 bg-[#090909] border-b border-[#1A1A1A] relative">
+      <div className="max-w-4xl mx-auto px-6 sm:px-10 lg:px-14">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-14">
-          <div className="flex items-center justify-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-[#d4af37] mb-3">
-            <span>Dúvidas Recorrentes</span>
-            <span aria-hidden="true" className="text-[#8e6817]">·</span>
-            <span>Segurança Técnica</span>
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="flex items-center justify-center gap-3 text-xs font-mono uppercase tracking-[0.25em] text-[#FFD96A] font-semibold mb-3">
+            <span className="w-8 h-[2px] bg-[#E6BE45]" />
+            <span>ESCLARECIMENTOS REGULATÓRIOS</span>
+            <span className="w-8 h-[2px] bg-[#E6BE45]" />
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-4xl text-[#f5eedc] font-normal leading-tight mb-4">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#FFFFFF] font-normal leading-tight mb-4">
             Perguntas frequentes sobre crédito bancário e agro
           </h2>
 
-          <p className="text-sm text-[#bcb3a7] font-light leading-relaxed">
-            Respostas embasadas nas normas regulatórias e na jurisprudência dos tribunais brasileiros. As soluções concretas dependem sempre do exame individualizado da documentação.
+          <p className="text-base text-[#C8C8C8] font-light leading-relaxed">
+            Respostas embasadas nas normas regulatórias e na jurisprudência dos tribunais brasileiros. As soluções concretas dependem do exame individualizado da documentação.
           </p>
         </div>
 
         {/* Accordion */}
-        <div className="space-y-3">
+        <div className="space-y-4">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
               <div
                 key={index}
-                className={`border rounded-sm transition-all duration-200 ${
+                className={`border rounded-[1px] transition-all duration-200 ${
                   isOpen
-                    ? 'bg-[#141418] border-[#d4af37]/50 shadow-[0_4px_16px_rgba(0,0,0,0.3)]'
-                    : 'bg-[#111114] border-[#222228] hover:border-[#33333d]'
+                    ? 'bg-[#121212] border-[#E6BE45] shadow-[0_0_25px_rgba(230,190,69,0.2)]'
+                    : 'bg-[#050505] border-[#1C1C1C] hover:border-[#333333]'
                 }`}
               >
                 <button
                   onClick={() => toggle(index)}
-                  className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
+                  className="w-full text-left p-6 sm:p-7 flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
                   aria-expanded={isOpen}
                 >
-                  <span className="text-sm sm:text-base font-semibold text-[#f5eedc] leading-snug">
+                  <span className="text-base sm:text-lg font-serif font-medium text-[#FFFFFF] leading-snug">
                     {faq.question}
                   </span>
                   <ChevronDown
-                    className={`w-4 h-4 text-[#d4af37] shrink-0 transition-transform duration-200 ${
+                    className={`w-5 h-5 text-[#E6BE45] shrink-0 transition-transform duration-200 ${
                       isOpen ? 'rotate-180' : ''
                     }`}
                   />
@@ -109,7 +109,7 @@ export const FAQSection: React.FC = () => {
                     isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                   }`}
                 >
-                  <div className="p-5 sm:p-6 pt-0 text-xs sm:text-sm text-[#a8a194] leading-relaxed font-light border-t border-[#1e1e24] mt-2">
+                  <div className="p-6 sm:p-7 pt-0 text-sm text-[#CCCCCC] leading-relaxed font-light border-t border-[#1C1C1C] mt-2">
                     {faq.answer}
                   </div>
                 </div>

@@ -12,7 +12,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30);
+      setIsScrolled(window.scrollY > 25);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -23,7 +23,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
     { label: 'Crédito Rural', href: '#credito-rural' },
     { label: 'Áreas de Atuação', href: '#areas-atuacao' },
     { label: 'Metodologia', href: '#metodologia' },
-    { label: 'Conteúdo Jurídico', href: '#artigos' },
+    { label: 'Patrimônio Rural', href: '#patrimonio-rural' },
+    { label: 'Artigos', href: '#artigos' },
     { label: 'FAQ', href: '#faq' },
   ];
 
@@ -41,54 +42,54 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'bg-[#0c0c0e]/95 backdrop-blur-md border-b border-[#d4af37]/20 py-3.5 shadow-[0_4px_24px_rgba(0,0,0,0.5)]'
-            : 'bg-gradient-to-b from-[#0c0c0e]/90 via-[#0c0c0e]/50 to-transparent py-5 border-b border-transparent'
+            ? 'bg-[#050505]/95 backdrop-blur-md border-b border-[#E6BE45]/30 py-3 shadow-[0_4px_30px_rgba(0,0,0,0.8)]'
+            : 'bg-gradient-to-b from-[#050505] via-[#050505]/70 to-transparent py-5 border-b border-transparent'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14">
           <div className="flex items-center justify-between gap-8">
-            {/* Zone 1: Brand Wordmark */}
+            {/* Zone 1: Pure Brand Wordmark Emblem */}
             <a
               href="#top"
               onClick={(e) => handleNavClick(e, '#top')}
-              className="group flex items-center transition-transform duration-200 hover:opacity-95"
+              className="group flex items-center transition-transform duration-200 hover:scale-105"
             >
               <NSLogo size="lg" />
             </a>
 
             {/* Zone 2: Navigation Links */}
-            <nav className="hidden lg:flex items-center gap-7 text-sm font-medium text-[#c8c0b2]">
+            <nav className="hidden xl:flex items-center gap-8 text-[13px] font-medium tracking-wide text-[#D0D0D0]">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="relative whitespace-nowrap py-1 transition-colors hover:text-[#f4efe6] group"
+                  className="relative whitespace-nowrap py-1 transition-colors hover:text-[#FFFFFF] group"
                 >
                   {link.label}
-                  <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#d4af37] transition-all duration-300 group-hover:w-full" />
+                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#E6BE45] transition-all duration-300 group-hover:w-full" />
                 </a>
               ))}
             </nav>
 
-            {/* Zone 3: 1 Primary Action */}
+            {/* Zone 3: 1 High-Impact Primary Action */}
             <div className="hidden sm:flex items-center gap-4 shrink-0">
               <button
                 onClick={onOpenContact}
-                className="relative inline-flex items-center justify-center gap-2 px-5 py-2.5 text-xs font-semibold tracking-wider uppercase text-[#0c0c0e] bg-gradient-to-r from-[#edd387] via-[#d4af37] to-[#ba8c26] rounded-[2px] transition-all duration-200 hover:brightness-110 active:scale-[0.98] shadow-[0_2px_14px_rgba(212,175,55,0.25)] whitespace-nowrap cursor-pointer"
+                className="relative inline-flex items-center justify-center gap-2.5 px-6 py-3 text-xs font-bold tracking-widest uppercase text-[#050505] bg-gradient-to-r from-[#FFD96A] via-[#E6BE45] to-[#B78B24] rounded-[1px] transition-all duration-200 hover:brightness-115 active:scale-[0.98] shadow-[0_0_20px_rgba(230,190,69,0.35)] whitespace-nowrap cursor-pointer"
               >
                 <span>Solicitar Análise</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#0c0c0e]" />
+                <ArrowUpRight className="w-4 h-4 text-[#050505] stroke-[2.5]" />
               </button>
             </div>
 
             {/* Mobile Hamburger Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 text-[#d4af37] hover:text-[#edd387] transition-colors focus:outline-none"
+              className="xl:hidden p-2 text-[#E6BE45] hover:text-[#FFD96A] transition-colors focus:outline-none"
               aria-label="Abrir menu de navegação"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
             </button>
           </div>
         </div>
@@ -96,31 +97,31 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 lg:hidden">
+        <div className="fixed inset-0 z-50 xl:hidden">
           <div
-            className="fixed inset-0 bg-black/80 backdrop-blur-sm"
+            className="fixed inset-0 bg-black/85 backdrop-blur-md"
             onClick={() => setMobileMenuOpen(false)}
           />
-          <div className="fixed top-0 right-0 bottom-0 w-full max-w-xs bg-[#111114] border-l border-[#d4af37]/30 p-6 flex flex-col justify-between shadow-2xl">
+          <div className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-[#090909] border-l border-[#E6BE45]/30 p-8 flex flex-col justify-between shadow-2xl">
             <div>
-              <div className="flex items-center justify-between pb-6 border-b border-[#242429]">
+              <div className="flex items-center justify-between pb-6 border-b border-[#1A1A1A]">
                 <NSLogo size="md" />
                 <button
                   onClick={() => setMobileMenuOpen(false)}
-                  className="p-1 text-[#a59f93] hover:text-[#f4efe6]"
+                  className="p-1.5 text-[#D0D0D0] hover:text-[#FFFFFF]"
                   aria-label="Fechar menu"
                 >
-                  <X className="w-5 h-5" />
+                  <X className="w-6 h-6" />
                 </button>
               </div>
 
-              <div className="flex flex-col gap-1 mt-6">
+              <div className="flex flex-col gap-2 mt-8">
                 {navLinks.map((link) => (
                   <a
                     key={link.href}
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className="px-3 py-3 text-base font-medium text-[#dcd6ca] hover:text-[#d4af37] hover:bg-[#1a1a20] rounded transition-colors"
+                    className="px-4 py-3.5 text-base font-medium text-[#E0E0E0] hover:text-[#FFD96A] hover:bg-[#151515] rounded transition-colors"
                   >
                     {link.label}
                   </a>
@@ -128,18 +129,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
               </div>
             </div>
 
-            <div className="pt-6 border-t border-[#242429] flex flex-col gap-3">
+            <div className="pt-6 border-t border-[#1A1A1A] flex flex-col gap-3">
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
                   onOpenContact();
                 }}
-                className="w-full py-3 text-center text-xs font-semibold tracking-wider uppercase text-[#0c0c0e] bg-gradient-to-r from-[#edd387] via-[#d4af37] to-[#ba8c26] rounded-[2px] transition-all hover:brightness-110 active:scale-[0.98]"
+                className="w-full py-4 text-center text-xs font-bold tracking-widest uppercase text-[#050505] bg-gradient-to-r from-[#FFD96A] via-[#E6BE45] to-[#B78B24] rounded-[1px] transition-all hover:brightness-110 active:scale-[0.98] shadow-[0_0_20px_rgba(230,190,69,0.3)]"
               >
                 Solicitar Análise Inicial
               </button>
-              <p className="text-[11px] text-center text-[#7a7469]">
-                Atendimento jurídico sob sigilo profissional
+              <p className="text-[11px] text-center text-[#888888] font-mono">
+                NS Advocacia • OAB/SP 318.251
               </p>
             </div>
           </div>

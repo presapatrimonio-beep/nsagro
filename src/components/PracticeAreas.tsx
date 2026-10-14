@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, CheckCircle2, FileCheck, Shield, ChevronRight } from 'lucide-react';
+import { ChevronRight, CheckCircle2, ArrowRight } from 'lucide-react';
 
 interface PracticeAreaItem {
   id: string;
@@ -106,9 +106,9 @@ const practiceData: PracticeAreaItem[] = [
     id: 'sucessao',
     letter: 'F',
     title: 'Patrimônio e Sucessão Rural',
-    subtitle: 'Estruturação societária e blindagem ética geracional',
+    subtitle: 'Estruturação societária e proteção geracional ética',
     summary:
-      'Prevenção de conflitos e isolamento de riscos operacionais por meio de planejamento sucessório, holdings rurais e governança familiar integrada à gestão de dívidas financeiras.',
+      'Prevenção de litígios e isolamento de riscos operacionais por meio de planejamento sucessório, holdings rurais e governança familiar integrada à gestão de passivos bancários.',
     themes: [
       'Relação entre passivos bancários e preservação do patrimônio familiar rural',
       'Estruturação de Holdings Patrimoniais e Rurais para segregação de riscos',
@@ -126,116 +126,116 @@ export const PracticeAreas: React.FC = () => {
   const currentArea = practiceData.find((item) => item.id === selectedId) || practiceData[0];
 
   return (
-    <section id="areas-atuacao" className="py-20 lg:py-28 bg-[#0e0e11] border-b border-[#212126] relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Title */}
-        <div className="max-w-3xl mb-14">
-          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-[#d4af37] mb-3">
-            <span>Frentes Especializadas</span>
-            <span aria-hidden="true" className="text-[#8e6817]">·</span>
-            <span>Atuação Integrada</span>
+    <section id="areas-atuacao" className="py-24 lg:py-32 bg-[#090909] border-b border-[#1A1A1A] relative">
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14">
+        {/* Header */}
+        <div className="max-w-3xl mb-16">
+          <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.25em] text-[#FFD96A] font-semibold mb-3">
+            <span className="w-8 h-[2px] bg-[#E6BE45]" />
+            <span>FRENTES ESPECIALIZADAS DE ATUAÇÃO</span>
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-4xl text-[#f5eedc] font-normal leading-tight mb-4">
-            Áreas de atuação em direito bancário e agronegócio
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#FFFFFF] font-normal leading-tight mb-4">
+            Índice institucional de serviços em direito bancário rural
           </h2>
 
-          <p className="text-base text-[#bcb3a7] font-light leading-relaxed">
-            As frentes abaixo representam os pilares de suporte jurídico em operações financeiras rurais. Cada atuação é delineada estritamente conforme a documentação e os limites acordados com o cliente.
+          <p className="text-base sm:text-lg text-[#C8C8C8] font-light leading-relaxed">
+            Selecione uma área abaixo para acessar o escopo temático, os instrumentos contratuais examinados e as diretrizes jurídicas aplicáveis.
           </p>
         </div>
 
-        {/* Editorial Layout: Left Master Index (4 cols) & Right Deep View (8 cols) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Left Column: Interactive Editorial Index */}
-          <div className="lg:col-span-5 space-y-2">
+        {/* Asymmetrical Master Navigation & Expansive Deep-Dive View */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          {/* Master Left Index (5 cols) */}
+          <div className="lg:col-span-5 space-y-3">
             {practiceData.map((area) => {
               const isSelected = area.id === selectedId;
               return (
                 <button
                   key={area.id}
                   onClick={() => setSelectedId(area.id)}
-                  className={`w-full text-left p-4.5 rounded-sm transition-all duration-200 cursor-pointer flex items-start gap-4 border ${
+                  className={`w-full text-left p-5 transition-all duration-200 cursor-pointer flex items-center justify-between border ${
                     isSelected
-                      ? 'bg-[#18181d] border-[#d4af37]/60 shadow-[0_4px_20px_rgba(0,0,0,0.4)]'
-                      : 'bg-[#121215] border-[#222228] hover:border-[#383844] hover:bg-[#151519]'
+                      ? 'bg-[#151515] border-[#E6BE45] shadow-[0_0_20px_rgba(230,190,69,0.2)]'
+                      : 'bg-[#050505] border-[#1C1C1C] hover:border-[#333333] hover:bg-[#0D0D0D]'
                   }`}
                 >
-                  <span
-                    className={`font-mono text-xs font-bold pt-0.5 shrink-0 ${
-                      isSelected ? 'text-[#d4af37]' : 'text-[#777064]'
-                    }`}
-                  >
-                    {area.letter}.
-                  </span>
-                  <div className="flex-1 min-w-0">
-                    <h3
-                      className={`text-sm font-semibold truncate ${
-                        isSelected ? 'text-[#f5eedc]' : 'text-[#c8c0b3]'
+                  <div className="flex items-center gap-4 min-w-0">
+                    <span
+                      className={`font-mono text-sm font-bold w-7 h-7 rounded-[1px] flex items-center justify-center shrink-0 ${
+                        isSelected
+                          ? 'bg-[#E6BE45] text-[#050505]'
+                          : 'bg-[#151515] text-[#888888]'
                       }`}
                     >
-                      {area.title}
-                    </h3>
-                    <p className="text-xs text-[#8a8275] truncate mt-0.5">{area.subtitle}</p>
+                      {area.letter}
+                    </span>
+                    <div className="truncate">
+                      <h3
+                        className={`text-sm sm:text-base font-semibold truncate ${
+                          isSelected ? 'text-[#FFFFFF]' : 'text-[#CCCCCC]'
+                        }`}
+                      >
+                        {area.title}
+                      </h3>
+                      <p className="text-xs text-[#888888] truncate mt-0.5">{area.subtitle}</p>
+                    </div>
                   </div>
+
                   <ChevronRight
-                    className={`w-4 h-4 shrink-0 transition-transform ${
-                      isSelected ? 'text-[#d4af37] translate-x-1' : 'text-[#4e483e]'
+                    className={`w-5 h-5 shrink-0 transition-transform ${
+                      isSelected ? 'text-[#FFD96A] translate-x-1' : 'text-[#444444]'
                     }`}
                   />
                 </button>
               );
             })}
-
-            <div className="p-4 bg-[#121215]/60 border border-[#222227] mt-4">
-              <p className="text-[11px] text-[#7d7568] leading-relaxed">
-                <span className="text-[#c59b27] font-medium">Nota institucional:</span> As áreas de atuação apresentadas estão sujeitas a revisão técnica e alinhamento formal específico para cada caso concreto.
-              </p>
-            </div>
           </div>
 
-          {/* Right Column: Detailed Editorial Deep View */}
-          <div className="lg:col-span-7 bg-[#141418] border border-[#2e2e38] p-7 sm:p-9 rounded-sm relative">
-            {/* Top Area Header */}
-            <div className="border-b border-[#282832] pb-6 mb-7">
-              <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#d4af37] mb-2">
-                <span>Vertical {currentArea.letter}</span>
-                <span aria-hidden="true" className="text-[#8e6817]">/</span>
-                <span>NS Advocacia</span>
+          {/* Right Expansive Panel (7 cols) - Editorial Magazine Grade */}
+          <div className="lg:col-span-7 bg-[#050505] border border-[#222222] p-8 sm:p-12 relative shadow-[0_10px_40px_rgba(0,0,0,0.9)]">
+            {/* Top Badge & Title */}
+            <div className="border-b border-[#1C1C1C] pb-8 mb-8">
+              <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-widest text-[#FFD96A] font-bold mb-3">
+                <span>VERTICAL {currentArea.letter}</span>
+                <span className="text-[#E6BE45]">/</span>
+                <span>NS ADVOCACIA</span>
               </div>
-              <h3 className="font-serif text-2xl sm:text-3xl text-[#f5eedc] font-medium mb-3">
+
+              <h3 className="font-serif text-3xl sm:text-4xl text-[#FFFFFF] font-normal mb-4 leading-tight">
                 {currentArea.title}
               </h3>
-              <p className="text-sm text-[#c8c0b3] leading-relaxed font-light">
+
+              <p className="text-base text-[#D0D0D0] leading-relaxed font-light">
                 {currentArea.summary}
               </p>
             </div>
 
-            {/* List of Key Legal Themes */}
-            <div className="mb-7">
-              <span className="block text-xs font-mono uppercase tracking-wider text-[#c59b27] mb-3">
+            {/* Themes Checklist */}
+            <div className="mb-8">
+              <span className="block text-xs font-mono uppercase tracking-wider text-[#FFD96A] font-bold mb-4">
                 Questões e Temas Jurídicos Abrangidos
               </span>
-              <ul className="space-y-2.5">
+              <ul className="space-y-3">
                 {currentArea.themes.map((theme, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-[#b5ada0] leading-snug">
-                    <CheckCircle2 className="w-4 h-4 text-[#d4af37] shrink-0 mt-0.5" />
+                  <li key={idx} className="flex items-start gap-3.5 text-xs sm:text-sm text-[#C0C0C0] leading-relaxed">
+                    <CheckCircle2 className="w-4 h-4 text-[#E6BE45] shrink-0 mt-0.5" />
                     <span>{theme}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Instruments Examined */}
-            <div className="mb-7 pt-5 border-t border-[#24242c]">
-              <span className="block text-xs font-mono uppercase tracking-wider text-[#c59b27] mb-2">
-                Instrumentos e Documentos Típicos
+            {/* Typical Documents */}
+            <div className="mb-8 pt-6 border-t border-[#1C1C1C]">
+              <span className="block text-xs font-mono uppercase tracking-wider text-[#FFD96A] font-bold mb-3">
+                Instrumentos Analisados
               </span>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2.5">
                 {currentArea.instruments.map((inst, idx) => (
                   <span
                     key={idx}
-                    className="text-xs px-3 py-1.5 bg-[#1b1b22] text-[#dcd6cb] border border-[#33333e] rounded-sm"
+                    className="text-xs px-3.5 py-1.5 bg-[#151515] text-[#E0E0E0] border border-[#2A2A2A] rounded-[1px]"
                   >
                     {inst}
                   </span>
@@ -244,8 +244,8 @@ export const PracticeAreas: React.FC = () => {
             </div>
 
             {/* Scope Caveat */}
-            <div className="p-4 bg-[#191920] border-l-2 border-[#d4af37] text-xs text-[#9d9587] leading-relaxed">
-              <span className="font-semibold text-[#f5eedc] block mb-1">Critério de Rigor Técnico:</span>
+            <div className="p-5 bg-[#0D0D0D] border-l-2 border-[#E6BE45] text-xs text-[#999999] leading-relaxed">
+              <strong className="text-[#FFFFFF] block mb-1">Critério de Rigor Técnico:</strong>
               {currentArea.scopeNote}
             </div>
           </div>

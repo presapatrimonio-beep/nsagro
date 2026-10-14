@@ -10,60 +10,61 @@ export const PrivacyModal: React.FC<PrivacyModalProps> = ({ isOpen, onClose }) =
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 lg:p-10">
-      <div className="bg-[#111114] border border-[#d4af37]/40 max-w-2xl w-full max-h-[85vh] overflow-y-auto rounded-sm p-6 sm:p-10 relative shadow-2xl">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 lg:p-10">
+      <div className="bg-[#090909] border border-[#E6BE45]/60 max-w-2xl w-full max-h-[85vh] overflow-y-auto rounded-[1px] p-6 sm:p-10 relative shadow-[0_0_50px_rgba(0,0,0,0.9)]">
         <button
           onClick={onClose}
-          className="absolute top-6 right-6 p-2 text-[#999285] hover:text-[#f5eedc] hover:bg-[#1a1a20] rounded transition-colors cursor-pointer"
+          className="absolute top-6 right-6 p-2 text-[#888888] hover:text-[#FFFFFF] hover:bg-[#151515] rounded transition-colors cursor-pointer"
           aria-label="Fechar política de privacidade"
         >
-          <X className="w-5 h-5" />
+          <X className="w-6 h-6" />
         </button>
 
-        <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#d4af37] mb-2">
-          <ShieldCheck className="w-4 h-4" />
-          <span>Aviso Institucional de Privacidade</span>
+        <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#FFD96A] font-bold mb-3">
+          <ShieldCheck className="w-4 h-4 text-[#E6BE45]" />
+          <span>AVISO INSTITUCIONAL DE PRIVACIDADE</span>
         </div>
 
-        <h2 className="font-serif text-2xl sm:text-3xl text-[#f5eedc] font-medium leading-tight mb-4">
+        <h2 className="font-serif text-2xl sm:text-3xl text-[#FFFFFF] font-normal leading-tight mb-4">
           Política de Privacidade e Tratamento de Dados (LGPD)
         </h2>
 
-        <div className="space-y-4 text-xs sm:text-sm text-[#b8b0a2] font-light leading-relaxed">
+        <div className="space-y-4 text-xs sm:text-sm text-[#CCCCCC] font-light leading-relaxed">
           <p>
-            A <strong className="text-[#f5eedc]">NS Advocacia</strong> está comprometida com a salvaguarda da privacidade e a proteção de dados pessoais dos visitantes deste website e de seus clientes, em estrita conformidade com a Lei Federal nº 13.709/2018 (Lei Geral de Proteção de Dados Pessoais — LGPD) e com as normas éticas do Conselho Federal da OAB.
+            A <strong className="text-[#FFFFFF]">NS Advocacia</strong> está comprometida com a salvaguarda da privacidade e a proteção de dados pessoais dos visitantes deste website e de seus clientes, em estrita conformidade com a Lei Federal nº 13.709/2018 (Lei Geral de Proteção de Dados Pessoais — LGPD) e com as normas éticas do Conselho Federal da OAB.
           </p>
 
-          <h3 className="font-serif text-base text-[#f5eedc] pt-2 font-medium">
+          <h3 className="font-serif text-base text-[#FFFFFF] pt-2 font-medium">
             1. Coleta e Finalidade dos Dados
           </h3>
           <p>
             Os dados fornecidos no formulário de contato (nome, telefone, e-mail, atividade rural e relato preliminar) destinam-se exclusivamente à realização de triagem inicial da demanda jurídica, viabilizando o retorno pelo escritório. Esses dados não são compartilhados com terceiros para fins de marketing.
           </p>
 
-          <h3 className="font-serif text-base text-[#f5eedc] pt-2 font-medium">
+          <h3 className="font-serif text-base text-[#FFFFFF] pt-2 font-medium">
             2. Sigilo Profissional da Advocacia
           </h3>
           <p>
             O sigilo das comunicações entre advogado e cliente constitui garantia estatutária (art. 7º, II da Lei 8.906/94). Todas as informações encaminhadas encontram-se protegidas por dever absoluto de confidencialidade.
           </p>
 
-          <h3 className="font-serif text-base text-[#f5eedc] pt-2 font-medium">
+          <h3 className="font-serif text-base text-[#FFFFFF] pt-2 font-medium">
             3. Direitos do Titular
           </h3>
           <p>
             O titular dos dados poderá, a qualquer tempo, solicitar a confirmação da existência de tratamento, o acesso aos seus dados ou a revogação de seu consentimento por meio dos canais oficiais do escritório.
           </p>
 
-          <div className="p-4 bg-[#16161c] border-l-2 border-[#d4af37] text-xs text-[#8e8779] mt-4">
-            [Informações cadastrais e dados do Encarregado de Proteção de Dados (DPO) a serem confirmados pelo escritório antes da publicação definitiva].
+          <div className="p-4 bg-[#050505] border-l-2 border-[#E6BE45] text-xs text-[#A0A0A0] mt-4">
+            <strong className="text-[#FFD96A] block mb-1">Identificação Institucional:</strong>
+            NS Advocacia • OAB/SP 318.251 — Assessoria Jurídica Estratégica em Direito Bancário no Agronegócio.
           </div>
         </div>
 
-        <div className="mt-8 pt-4 border-t border-[#222228] flex justify-end">
+        <div className="mt-8 pt-4 border-t border-[#1F1F1F] flex justify-end">
           <button
             onClick={onClose}
-            className="px-5 py-2 text-xs font-semibold uppercase tracking-wider text-[#0c0c0e] bg-[#d4af37] hover:bg-[#edd387] rounded-sm transition-colors cursor-pointer"
+            className="px-6 py-2.5 text-xs font-bold uppercase tracking-widest text-[#050505] bg-gradient-to-r from-[#FFD96A] via-[#E6BE45] to-[#B78B24] rounded-[1px] transition-all hover:brightness-115 cursor-pointer shadow-[0_0_15px_rgba(230,190,69,0.3)]"
           >
             Compreendido e Fechar
           </button>

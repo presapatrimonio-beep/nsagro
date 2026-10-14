@@ -4,7 +4,7 @@ import { FileSearch, FolderCheck, Building2, Compass } from 'lucide-react';
 export const Methodology: React.FC = () => {
   const axes = [
     {
-      number: 'EIXO 01',
+      number: '01',
       title: 'Contratos, Encargos e Riscos',
       icon: FileSearch,
       summary:
@@ -17,7 +17,7 @@ export const Methodology: React.FC = () => {
       ],
     },
     {
-      number: 'EIXO 02',
+      number: '02',
       title: 'Documentação e Prova',
       icon: FolderCheck,
       summary:
@@ -30,7 +30,7 @@ export const Methodology: React.FC = () => {
       ],
     },
     {
-      number: 'EIXO 03',
+      number: '03',
       title: 'Garantias e Estrutura Patrimonial',
       icon: Building2,
       summary:
@@ -43,7 +43,7 @@ export const Methodology: React.FC = () => {
       ],
     },
     {
-      number: 'EIXO 04',
+      number: '04',
       title: 'Prazos e Estratégia Jurídica',
       icon: Compass,
       summary:
@@ -58,62 +58,61 @@ export const Methodology: React.FC = () => {
   ];
 
   return (
-    <section id="metodologia" className="py-20 lg:py-28 bg-[#0e0e11] border-b border-[#212126] relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+    <section id="metodologia" className="py-24 lg:py-32 bg-[#090909] border-b border-[#1A1A1A] relative">
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14">
+        {/* Header */}
         <div className="max-w-3xl mb-16">
-          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-[#d4af37] mb-3">
-            <span>Rigor de Análise</span>
-            <span aria-hidden="true" className="text-[#8e6817]">·</span>
-            <span>Quatro Eixos Técnicos</span>
+          <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.25em] text-[#FFD96A] font-semibold mb-3">
+            <span className="w-8 h-[2px] bg-[#E6BE45]" />
+            <span>METODOLOGIA JURÍDICA ESTRUTURADA</span>
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-4xl text-[#f5eedc] font-normal leading-tight mb-4">
-            Metodologia estruturada para exame de operações agrofinanceiras
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#FFFFFF] font-normal leading-tight mb-4">
+            Quatro eixos de rigor técnico para operações bancárias rurais
           </h2>
 
-          <p className="text-base text-[#bcb3a7] font-light leading-relaxed">
-            Sem recorrer a fórmulas prontas ou promessas infundadas, a assessoria jurídica se desenvolve a partir de quatro eixos analíticos complementares que permitem compreender com clareza o cenário de cada cliente.
+          <p className="text-base sm:text-lg text-[#C8C8C8] font-light leading-relaxed">
+            Sem recorrer a fórmulas prontas ou promessas infundadas, a assessoria jurídica se desenvolve a partir de quatro eixos analíticos complementares que permitem compreender com exatidão o cenário de cada produtor.
           </p>
         </div>
 
-        {/* Continuous Editorial Flow - 4 Axes with Discreet Hairline Dividers */}
+        {/* Continuous Magazine Editorial Sequence */}
         <div className="space-y-12">
           {axes.map((axis, index) => {
             const Icon = axis.icon;
             return (
-              <div key={index} className="pt-8 border-t border-[#25252e]">
+              <div key={index} className="pt-10 border-t border-[#1F1F1F]">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                   {/* Left Column: Number & Title (4 cols) */}
                   <div className="lg:col-span-4">
-                    <span className="text-xs font-mono font-bold tracking-widest text-[#d4af37] block mb-2">
-                      {axis.number}
+                    <span className="text-xs font-mono font-bold tracking-widest text-[#FFD96A] block mb-2">
+                      EIXO {axis.number}
                     </span>
-                    <h3 className="font-serif text-2xl text-[#f5eedc] font-medium leading-snug mb-3">
+                    <h3 className="font-serif text-2xl sm:text-3xl text-[#FFFFFF] font-normal leading-snug mb-4">
                       {axis.title}
                     </h3>
-                    <div className="flex items-center gap-2 text-[#8e6817]">
-                      <Icon className="w-5 h-5 text-[#d4af37]" />
-                      <div className="h-[1px] w-16 bg-[#d4af37]/40" />
+                    <div className="flex items-center gap-3 text-[#E6BE45]">
+                      <Icon className="w-5 h-5 text-[#FFD96A]" />
+                      <div className="h-[2px] w-20 bg-gradient-to-r from-[#E6BE45] to-transparent" />
                     </div>
                   </div>
 
                   {/* Middle Column: Summary (4 cols) */}
                   <div className="lg:col-span-4">
-                    <p className="text-sm text-[#c8c0b3] leading-relaxed font-light">
+                    <p className="text-sm sm:text-base text-[#D0D0D0] leading-relaxed font-light">
                       {axis.summary}
                     </p>
                   </div>
 
                   {/* Right Column: Key Verification Checks (4 cols) */}
-                  <div className="lg:col-span-4 bg-[#141418] border border-[#262630] p-5 rounded-sm">
-                    <span className="block text-[11px] font-mono uppercase tracking-wider text-[#c59b27] mb-3">
+                  <div className="lg:col-span-4 bg-[#050505] border border-[#222222] p-6 rounded-[1px]">
+                    <span className="block text-xs font-mono uppercase tracking-wider text-[#FFD96A] font-bold mb-4">
                       Procedimentos Abrangidos
                     </span>
-                    <ul className="space-y-2">
+                    <ul className="space-y-2.5">
                       {axis.details.map((detail, idx) => (
-                        <li key={idx} className="text-xs text-[#a0988a] flex items-start gap-2 leading-relaxed">
-                          <span className="text-[#d4af37] select-none font-mono">›</span>
+                        <li key={idx} className="text-xs text-[#A0A0A0] flex items-start gap-2.5 leading-relaxed font-light">
+                          <span className="text-[#E6BE45] select-none font-mono font-bold">›</span>
                           <span>{detail}</span>
                         </li>
                       ))}

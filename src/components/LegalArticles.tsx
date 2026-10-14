@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BookOpen, Clock, Calendar, ArrowRight, X, Scale, FileText } from 'lucide-react';
+import { BookOpen, Clock, Calendar, ArrowRight, X } from 'lucide-react';
 
 export interface Article {
   id: string;
@@ -139,34 +139,33 @@ export const LegalArticles: React.FC = () => {
     : articlesData.filter((a) => a.category === activeCategory);
 
   return (
-    <section id="artigos" className="py-20 lg:py-28 bg-[#0c0c0e] relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="artigos" className="py-24 lg:py-32 bg-[#050505] border-b border-[#1A1A1A] relative">
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-          <div className="max-w-2xl">
-            <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-[#d4af37] mb-3">
-              <span>Produção Técnica</span>
-              <span aria-hidden="true" className="text-[#8e6817]">·</span>
-              <span>Doutrina & Legislação</span>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+          <div className="max-w-3xl">
+            <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.25em] text-[#FFD96A] font-semibold mb-3">
+              <span className="w-8 h-[2px] bg-[#E6BE45]" />
+              <span>PRODUÇÃO TÉCNICA & DOUTRINA</span>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl text-[#f5eedc] font-normal leading-tight mb-2">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#FFFFFF] font-normal leading-tight mb-3">
               Conteúdo jurídico especializado no agronegócio
             </h2>
-            <p className="text-sm text-[#bcb3a7] font-light leading-relaxed">
+            <p className="text-base text-[#C8C8C8] font-light leading-relaxed">
               Análises e artigos informativos sobre as repercussões legais e jurisprudenciais do direito bancário aplicado ao setor agropecuário.
             </p>
           </div>
 
-          {/* Category Filter Controls */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-2">
+          {/* Category Filter Controls in Gold */}
+          <div className="flex items-center gap-2.5 overflow-x-auto pb-2">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-3.5 py-1.5 text-xs font-medium rounded-sm transition-colors whitespace-nowrap cursor-pointer ${
+                className={`px-4 py-2 text-xs font-bold tracking-wider uppercase rounded-[1px] transition-colors whitespace-nowrap cursor-pointer ${
                   activeCategory === cat
-                    ? 'bg-[#d4af37] text-[#0c0c0e] font-semibold'
-                    : 'bg-[#151518] text-[#a8a194] hover:text-[#f5eedc] hover:bg-[#1f1f24] border border-[#26262e]'
+                    ? 'bg-[#E6BE45] text-[#050505] shadow-[0_0_15px_rgba(230,190,69,0.35)]'
+                    : 'bg-[#0D0D0D] text-[#A0A0A0] hover:text-[#FFFFFF] hover:bg-[#151515] border border-[#222222]'
                 }`}
               >
                 {cat}
@@ -175,39 +174,38 @@ export const LegalArticles: React.FC = () => {
           </div>
         </div>
 
-        {/* Articles List / Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Articles Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {filteredArticles.map((article) => (
             <article
               key={article.id}
-              className="bg-[#121215] border border-[#26262e] hover:border-[#d4af37]/45 p-7 rounded-sm flex flex-col justify-between transition-all duration-200 group"
+              className="bg-[#090909] border border-[#1F1F1F] hover:border-[#E6BE45] p-8 rounded-[1px] flex flex-col justify-between transition-all duration-300 group shadow-[0_5px_25px_rgba(0,0,0,0.7)]"
             >
               <div>
-                {/* Clean Unboxed Metadata */}
-                <div className="flex items-center gap-2 text-[11px] font-mono text-[#c59b27] uppercase tracking-wider mb-3">
+                <div className="flex items-center gap-2 text-xs font-mono text-[#FFD96A] uppercase tracking-wider font-semibold mb-4">
                   <span>{article.category}</span>
-                  <span aria-hidden="true">·</span>
+                  <span aria-hidden="true" className="text-[#E6BE45]">·</span>
                   <span>{article.readTime}</span>
                 </div>
 
-                <h3 className="font-serif text-xl text-[#f5eedc] font-normal group-hover:text-[#edd387] transition-colors leading-snug mb-3">
+                <h3 className="font-serif text-2xl text-[#FFFFFF] font-normal group-hover:text-[#FFD96A] transition-colors leading-snug mb-4">
                   {article.title}
                 </h3>
 
-                <p className="text-xs text-[#a0988a] font-light leading-relaxed mb-6">
+                <p className="text-xs sm:text-sm text-[#A0A0A0] font-light leading-relaxed mb-8">
                   {article.summary}
                 </p>
               </div>
 
               <div>
-                <div className="hairline-dark mb-4" />
+                <div className="hairline-dark mb-5" />
                 <div className="flex items-center justify-between text-xs">
-                  <span className="text-[#6d665b] text-[11px] font-mono">{article.date}</span>
+                  <span className="text-[#777777] font-mono">{article.date}</span>
                   <button
                     onClick={() => setSelectedArticle(article)}
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#d4af37] group-hover:text-[#f5eedc] transition-colors cursor-pointer"
+                    className="inline-flex items-center gap-2 text-xs font-bold tracking-wider uppercase text-[#FFD96A] group-hover:text-[#FFFFFF] transition-colors cursor-pointer"
                   >
-                    <span>Ler Artigo</span>
+                    <span>LER ARTIGO</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
@@ -216,9 +214,9 @@ export const LegalArticles: React.FC = () => {
           ))}
         </div>
 
-        {/* Informative Disclaimer Banner */}
-        <div className="mt-12 text-center">
-          <p className="text-xs text-[#7d7568] max-w-3xl mx-auto italic">
+        {/* Informative Disclaimer */}
+        <div className="text-center">
+          <p className="text-xs text-[#777777] max-w-3xl mx-auto italic font-light">
             Aviso: O conteúdo dos artigos possui finalidade estritamente informativa e acadêmica. As teses jurídicas não constituem orientação vinculante e não substituem o exame técnico de cada caso concreto por advogado habilitado.
           </p>
         </div>
@@ -226,20 +224,18 @@ export const LegalArticles: React.FC = () => {
 
       {/* Full Article Reading Modal */}
       {selectedArticle && (
-        <div className="fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 lg:p-10">
-          <div className="bg-[#111114] border border-[#d4af37]/40 max-w-3xl w-full max-h-[90vh] overflow-y-auto rounded-sm p-6 sm:p-10 relative shadow-2xl">
-            {/* Close Button */}
+        <div className="fixed inset-0 z-50 overflow-y-auto bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 lg:p-10">
+          <div className="bg-[#090909] border border-[#E6BE45]/60 max-w-3xl w-full max-h-[90vh] overflow-y-auto rounded-[1px] p-6 sm:p-12 relative shadow-[0_0_50px_rgba(0,0,0,0.9)]">
             <button
               onClick={() => setSelectedArticle(null)}
-              className="absolute top-6 right-6 p-2 text-[#999285] hover:text-[#f5eedc] hover:bg-[#1a1a20] rounded transition-colors"
+              className="absolute top-6 right-6 p-2 text-[#999999] hover:text-[#FFFFFF] hover:bg-[#151515] rounded transition-colors cursor-pointer"
               aria-label="Fechar artigo"
             >
-              <X className="w-5 h-5" />
+              <X className="w-6 h-6" />
             </button>
 
-            {/* Modal Header */}
-            <div className="border-b border-[#24242c] pb-6 mb-8">
-              <div className="flex items-center gap-2 text-xs font-mono text-[#d4af37] uppercase tracking-wider mb-2">
+            <div className="border-b border-[#222222] pb-6 mb-8">
+              <div className="flex items-center gap-2 text-xs font-mono text-[#FFD96A] uppercase tracking-wider font-semibold mb-3">
                 <span>{selectedArticle.category}</span>
                 <span aria-hidden="true">·</span>
                 <span>{selectedArticle.readTime}</span>
@@ -247,29 +243,28 @@ export const LegalArticles: React.FC = () => {
                 <span>{selectedArticle.date}</span>
               </div>
 
-              <h2 className="font-serif text-2xl sm:text-3xl text-[#f5eedc] font-medium leading-tight mb-3">
+              <h2 className="font-serif text-3xl sm:text-4xl text-[#FFFFFF] font-normal leading-tight mb-4">
                 {selectedArticle.title}
               </h2>
 
-              <p className="text-sm text-[#c8c0b3] font-light leading-relaxed">
+              <p className="text-sm sm:text-base text-[#D0D0D0] font-light leading-relaxed">
                 {selectedArticle.subtitle}
               </p>
 
-              <div className="mt-4 pt-3 border-t border-[#1e1e24] text-xs text-[#8e8779]">
+              <div className="mt-4 pt-4 border-t border-[#1A1A1A] text-xs text-[#888888]">
                 <span>Autor: </span>
-                <span className="text-[#d8d1c3]">{selectedArticle.author}</span>
+                <span className="text-[#FFD96A] font-semibold">{selectedArticle.author}</span>
               </div>
             </div>
 
-            {/* Article Content */}
-            <div className="space-y-8 text-sm sm:text-base text-[#cfc7bb] font-light leading-relaxed">
+            <div className="space-y-8 text-sm sm:text-base text-[#D0D0D0] font-light leading-relaxed">
               {selectedArticle.content.map((sec, idx) => (
                 <div key={idx} className="space-y-3">
-                  <h3 className="font-serif text-lg sm:text-xl text-[#f5eedc] font-medium">
+                  <h3 className="font-serif text-xl sm:text-2xl text-[#FFFFFF] font-medium">
                     {sec.sectionTitle}
                   </h3>
                   {sec.paragraphs.map((p, pIdx) => (
-                    <p key={pIdx} className="leading-relaxed text-xs sm:text-sm text-[#b8b0a2]">
+                    <p key={pIdx} className="leading-relaxed text-xs sm:text-sm text-[#B0B0B0]">
                       {p}
                     </p>
                   ))}
@@ -277,27 +272,25 @@ export const LegalArticles: React.FC = () => {
               ))}
             </div>
 
-            {/* Legal References Box */}
-            <div className="mt-10 p-5 bg-[#16161b] border-t border-[#d4af37]/30 rounded-sm">
-              <span className="block text-xs font-mono text-[#d4af37] uppercase tracking-wider mb-2">
+            <div className="mt-10 p-6 bg-[#050505] border-t-2 border-[#E6BE45] rounded-[1px]">
+              <span className="block text-xs font-mono text-[#FFD96A] uppercase tracking-wider font-bold mb-3">
                 Dispositivos e Precedentes Referenciados
               </span>
-              <ul className="space-y-1.5 text-xs text-[#9d9587]">
+              <ul className="space-y-2 text-xs text-[#A0A0A0]">
                 {selectedArticle.references.map((ref, idx) => (
                   <li key={idx} className="flex items-center gap-2">
-                    <span className="text-[#d4af37] font-mono">›</span>
+                    <span className="text-[#E6BE45] font-mono">›</span>
                     <span>{ref}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Footer Modal Disclaimer */}
-            <div className="mt-8 pt-4 border-t border-[#222228] flex items-center justify-between text-xs text-[#7a7366]">
-              <span>NS Advocacia · Direito Bancário no Agronegócio</span>
+            <div className="mt-8 pt-4 border-t border-[#1C1C1C] flex items-center justify-between text-xs text-[#777777]">
+              <span>NS Advocacia • OAB/SP 318.251</span>
               <button
                 onClick={() => setSelectedArticle(null)}
-                className="text-[#d4af37] hover:underline"
+                className="text-[#FFD96A] font-bold hover:underline"
               >
                 Fechar Artigo
               </button>

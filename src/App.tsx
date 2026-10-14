@@ -14,6 +14,7 @@ import Methodology from './components/Methodology';
 import DocumentaryAnalysis from './components/DocumentaryAnalysis';
 import DebtRestructuring from './components/DebtRestructuring';
 import LitigationSection from './components/LitigationSection';
+import RuralEstateStructure from './components/RuralEstateStructure';
 import LegalArticles from './components/LegalArticles';
 import FAQSection from './components/FAQSection';
 import ContactSection from './components/ContactSection';
@@ -38,55 +39,58 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0c0c0e] text-[#f4efe6] flex flex-col font-sans selection:bg-[#d4af37]/30 selection:text-[#fae5a5]">
-      {/* 1. Top Bar / Navbar */}
+    <div className="min-h-screen bg-[#050505] text-[#F5F5F5] flex flex-col font-sans selection:bg-[#E6BE45]/40 selection:text-[#050505]">
+      {/* 1. Cabeçalho Institucional / Navbar */}
       <Navbar onOpenContact={handleOpenContact} />
 
       <main className="flex-grow">
-        {/* 2. Hero - Institutional Opening */}
+        {/* 2. Hero — Abertura Institucional de Alto Impacto */}
         <Hero onOpenContact={handleOpenContact} onExploreClick={handleExplore} />
 
-        {/* 3. Editorial Introduction - Why Agro Banking Needs Contextual Analysis */}
+        {/* 3. Apresentação da Atuação Contextualizada */}
         <EditorialIntro />
 
-        {/* 4. Context of Rural Credit - Dynamics, Instruments & Guarantees */}
+        {/* 4. Contexto do Crédito no Agronegócio */}
         <AgroCreditContext />
 
-        {/* 5. Practice Areas - 6 Structured Vertical Tracks with Master Deep-Dive */}
+        {/* 5. Áreas de Atuação Especializadas (A a F) */}
         <PracticeAreas />
 
-        {/* 6. Critical Situations - 10 Concrete Practical Triggers */}
+        {/* 6. Situações que Exigem Análise Jurídica (10 Casos Práticos) */}
         <CriticalSituations onOpenContact={handleOpenContact} />
 
-        {/* 7. Methodology - The 4 Technical Axes */}
+        {/* 7. Metodologia de Trabalho (Quatro Eixos Técnicos) */}
         <Methodology />
 
-        {/* 8. Documentation and Financial Analysis - Evidentiary Rigor & Data Protection */}
+        {/* 8. Contratos, Documentos e Análise Financeira Probatória */}
         <DocumentaryAnalysis onOpenContact={handleOpenContact} />
 
-        {/* 9. Debt Restructuring & Banking Renegotiation */}
+        {/* 9. Reestruturação de Passivos e Negociação Bancária */}
         <DebtRestructuring />
 
-        {/* 10. Litigation and Court Measures - Responsible Processual Defense */}
+        {/* 10. Contencioso e Medidas Judiciais Estratégicas */}
         <LitigationSection />
 
-        {/* 11. Specialized Legal Content - Categorized Articles & Reader */}
+        {/* 11. Patrimônio Rural e Estrutura Empresarial */}
+        <RuralEstateStructure onOpenContact={handleOpenContact} />
+
+        {/* 12. Conteúdo Jurídico Especializado (Artigos com Leitor Modal) */}
         <LegalArticles />
 
-        {/* 12. Frequently Asked Questions */}
+        {/* 13. Perguntas Frequentes (FAQ Estruturado) */}
         <FAQSection />
 
-        {/* 13. Contact & Case Intake Section */}
+        {/* 14. Contato e Triagem Institucional */}
         <ContactSection onOpenPrivacy={() => setPrivacyModalOpen(true)} />
       </main>
 
-      {/* 14. Institutional Footer */}
+      {/* 15. Rodapé Institucional Completo */}
       <Footer
         onOpenPrivacy={() => setPrivacyModalOpen(true)}
         onOpenContact={handleOpenContact}
       />
 
-      {/* 15. Privacy & LGPD Compliance Modal */}
+      {/* Modal de Política de Privacidade e LGPD */}
       <PrivacyModal
         isOpen={privacyModalOpen}
         onClose={() => setPrivacyModalOpen(false)}
